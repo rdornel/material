@@ -1,6 +1,8 @@
 .. _EditorConfig: http://editorconfig.org/
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
 
+:orphan:
+
 Como Contribuir?
 ----------------
 
