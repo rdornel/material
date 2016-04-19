@@ -1,6 +1,9 @@
 Extra
 =====
 
-.. include:: sites.rst
-.. include:: como_contribuir.rst
-.. include:: git.rst
+.. toctree::
+  :maxdepth: 3
+
+  sites.rst
+  como_contribuir.rst
+  git.rst

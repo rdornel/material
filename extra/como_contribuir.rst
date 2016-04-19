@@ -1,10 +1,8 @@
 .. _EditorConfig: http://editorconfig.org/
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
 
-:orphan:
-
 Como Contribuir?
-----------------
+================
 
 - Crie um fork do projeto no GitHub.
 - Faça suas alterações no seu fork.
