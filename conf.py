@@ -46,7 +46,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Material de Banco de Dados'
-copyright = u'2016, Rodrigo Dornel'
+copyright = u'2016, Rodrigo Dornel. Licença CC-BY-SA 4.0'
 author = u'Rodrigo Dornel'
 
 # The version info for the project you're documenting, acts as replacement for
