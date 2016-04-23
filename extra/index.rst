@@ -7,3 +7,4 @@ Extra
   sites.rst
   como_contribuir.rst
   git.rst
+  sphinx.rst
