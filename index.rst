@@ -13,4 +13,5 @@ Material de Banco de Dados
 
   informacoes/index.rst
   introducao/index.rst
+  linguagem-sql/index.rst
   extra/index.rst
