@@ -5,3 +5,4 @@ Linguagem SQL
   :maxdepth: 3
 
   create.rst
+  insert.rst
