@@ -9,7 +9,7 @@ Material de Banco de Dados
 
 
 .. toctree::
-  :maxdepth: 3
+  :maxdepth: 4
 
   informacoes/index.rst
   introducao/index.rst
