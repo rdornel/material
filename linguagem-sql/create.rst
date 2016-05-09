@@ -12,3 +12,8 @@ CREATE
       ClienteCodigo int,
       ClienteNome varchar(20)
     );
+    
+    CREATE CONSTRAINT
+    
+    ALTER TABLE ADD CONSTRAINT
+
