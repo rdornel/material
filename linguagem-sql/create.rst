@@ -41,7 +41,9 @@ Nesse exemplo adicionamos uma chave primária ao campo ClienteCodigo e configura
     );
 
 - CONSTRAINT FOREIGN KEY
-Neste exemplo temos a criação da FOREIGN KEY dentro do bloco de comando CREATE. Se tratando de uma chave estrangeira temos que tomar o cuidado de referenciar tabelas que já existem para evitar erros.
+Neste exemplo temos a criação da FOREIGN KEY dentro do bloco de comando CREATE. Se tratando de uma chave estrangeira temos que tomar o cuidado de referenciar tabelas que já existem para evitar erros. 
+Repare que no comando abaixo estamos criando uma tabela nova chamada Contas e especificando que o código de cliente deverá estar cadastrado na tabela de Cliente, portanto deve existir antes uma tabela Cliente que será referenciada nessa chave estrangeira FOREIGN KEY.
+Repare que sempre damos um nome para a CONSTRAINT, isso é uma boa prática, para evitar que o sistema dê nomes automáticos. 
  
  .. code-block:: sql
     :linenos:
@@ -53,11 +55,26 @@ Neste exemplo temos a criação da FOREIGN KEY dentro do bloco de comando CREATE
       ClienteCodigo int,
       ContaSaldo MONEY,
       ContaAbertura datetime
-      CONSTRAINT FK_CLIENTES_CONTAS FOREIGN KEY  (ClienteCodigo) REFERENCES Clientes
+      CONSTRAINT FK_CLIENTES_CONTAS FOREIGN KEY  (ClienteCodigo) REFERENCES Clientes(ClienteCodigo)
      );  
 
+- ALTER TABLE ADD CONSTRAINT
+Também podemos adiconar CONSTRAINT´s através do comando ALTER TABLE ... ADD CONSTRAINT. Geralmente após criar todas as entidades podemos então criar as restrições entre elas.
 
-CONSTRAINT´s de domínio
-    
-ALTER TABLE ADD CONSTRAINT
+ .. code-block:: sql
+    :linenos:
+    ALTER TABLE Contas ADD CONSTRAINT FK_CLIENTES_CONTAS FOREIGN KEY  (ClienteCodigo) REFERENCES Clientes(ClienteCodigo);
+
+
+- CONSTRAINT´s de domínio
+ .. code-block:: sql
+    :linenos:
+    ALTER TABLE Persons ADD CONSTRAINT chk_Person CHECK (P_Id>0 AND City='Sandnes');
+
+Apenas checando uma condição
+
+  .. code-block:: sql
+    :linenos:    
+     ALTER TABLE Persons ADD CHECK (P_Id>0)
+
 
