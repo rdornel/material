@@ -72,11 +72,15 @@ Também podemos adiconar CONSTRAINT´s através do comando ALTER TABLE ... ADD C
  .. code-block:: sql
     :linenos:
     
-    ALTER TABLE Cliente ADD CONSTRAINT chk_cliente_saldo CHECK (ClienteCodigo>0 AND Saldo>0);
+    ALTER TABLE Clientes ADD CONSTRAINT chk_cliente_saldo CHECK ([ClienteNascimento] < GETDATE() AND ClienteNome <> 'Sara');
 
-Apenas checando uma condição
+Abaixo a mensagem de tentativa de violação da CONSTRAINT acima.
+    
+**The INSERT statement conflicted with the CHECK constraint "chk_cliente_saldo". The conflict occurred in database "MinhaCaixa", table "dbo.Clientes".**
+
+Apenas checando uma condição, data de nascimento menor que data atual. No SQL Server para pegarmos a data atual usamos *GETDATE()*
 
   .. code-block:: sql
     :linenos:  
     
-     ALTER TABLE Contas ADD CHECK (Saldo>0);
+     ALTER TABLE Clientes ADD CONSTRAINT TESTE CHECK ([ClienteNascimento] < GETDATE());
