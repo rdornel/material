@@ -9,9 +9,8 @@ criação das entidades no banco de dados.
 O Primeiro comando é o CREATE DATABASE, que cria o Banco de dados e suas dependências, como arquivos e metadados dentro do sistema. 
 Vale lembrar que alguns sistemas gerenciadores de bancos de dados podem implementar maneiras diferentes de tratar os bancos de dados ou espaços de trabalho de cada usuário ou sistema.
 Sugiro a leitura do link abaixo, que explica como o Oracle trabalha, ao contrário do SQL Server que vemos em sala de aula.
-  
-  `a link`_.
-  .. _a link:http://www.oracle.com
+
+http://www.oracle.com
 
   .. code-block:: sql
     :linenos:
