@@ -72,11 +72,11 @@ Também podemos adiconar CONSTRAINT´s através do comando ALTER TABLE ... ADD C
  .. code-block:: sql
     :linenos:
     
-    ALTER TABLE Persons ADD CONSTRAINT chk_Person CHECK (P_Id>0 AND City='Sandnes');
+    ALTER TABLE Cliente ADD CONSTRAINT chk_cliente_saldo CHECK (ClienteCodigo>0 AND Saldo>0);
 
 Apenas checando uma condição
 
   .. code-block:: sql
     :linenos:  
     
-     ALTER TABLE Persons ADD CHECK (P_Id>0);
+     ALTER TABLE Contas ADD CHECK (Saldo>0);
