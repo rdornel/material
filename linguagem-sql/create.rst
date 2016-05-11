@@ -12,12 +12,14 @@ Sugiro a leitura do link abaixo, que explica como o Oracle trabalha, ao contrár
 
 http://www.oracle.com/technetwork/pt/articles/database-performance/introducao-conceito-de-tablespaces-495850-ptb.html
 
-- No nosso banco de dados de Exemplo temos a criação básica de um banco de dados e a criação de uma tabela chamada Clientes.
+- No nosso banco de dados de Exemplo temos a criação básica de um banco de dados e a criação de uma tabela chamada Clientes. Depois usamos o comando use para posicionar a execução dos comandos no banco de dados MinhaCaixa.
 
   .. code-block:: sql
     :linenos:
 
     CREATE DATABASE MinhaCaixa;
+    
+    use MinhaCaixa;
 
     CREATE TABLE Clientes (
       ClienteCodigo int,
@@ -25,8 +27,10 @@ http://www.oracle.com/technetwork/pt/articles/database-performance/introducao-co
     );
        
 Podemos ter variações do comando CREATE TABLE de acordo com a necessidade.
+Abaixo temos diversas implementações do comando CREATE e suas CONSTRAINT´s.
     
 - CONSTRAINT PRIMARY KEY & IDENTITY
+Nesse exemplo adicionamos uma chave primária ao campo ClienteCodigo e configuramos a propriedade IDENTITY que vai gerar um número com incremento de (um) a cada inserção na tabela Clientes. Você pode personalizar o incremento de acordo com sua necessidade, neste exemplo temos (1,1) iniciando em um e inrementando um.
 
   .. code-block:: sql
     :linenos:
@@ -37,6 +41,21 @@ Podemos ter variações do comando CREATE TABLE de acordo com a necessidade.
     );
 
 - CONSTRAINT FOREIGN KEY
+Neste exemplo temos a criação da FOREIGN KEY dentro do bloco de comando CREATE. Se tratando de uma chave estrangeira temos que tomar o cuidado de referenciar tabelas que já existem para evitar erros.
+ 
+ .. code-block:: sql
+    :linenos:
+    
+    CREATE TABLE Contas
+      (
+      AgenciaCodigo int,
+      ContaNumero VARCHAR (10) CONSTRAINT PK_CONTA PRIMARY KEY,
+      ClienteCodigo int,
+      ContaSaldo MONEY,
+      ContaAbertura datetime
+      CONSTRAINT FK_CLIENTES_CONTAS FOREIGN KEY  (ClienteCodigo) REFERENCES Clientes
+     );  
+
 
 CONSTRAINT´s de domínio
     
