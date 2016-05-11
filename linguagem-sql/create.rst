@@ -12,7 +12,7 @@ Sugiro a leitura do link abaixo, que explica como o Oracle trabalha, ao contrár
 
 http://www.oracle.com/technetwork/pt/articles/database-performance/introducao-conceito-de-tablespaces-495850-ptb.html
 
-No nosso banco de dados de Exemplo temos a criação básica de um banco de dados e a criação de uma tabela chamada Clientes.
+- No nosso banco de dados de Exemplo temos a criação básica de um banco de dados e a criação de uma tabela chamada Clientes.
 
   .. code-block:: sql
     :linenos:
@@ -26,9 +26,19 @@ No nosso banco de dados de Exemplo temos a criação básica de um banco de dado
        
 Podemos ter variações do comando CREATE TABLE de acordo com a necessidade.
     
-    CONSTRAINT PRIMARY KEY
-    CONSTRAINT FOREIGN KEY
-    CONSTRAINT´s de domínio
+- CONSTRAINT PRIMARY KEY & IDENTITY
+
+  .. code-block:: sql
+    :linenos:
+
+    CREATE TABLE Clientes (
+      ClienteCodigo int IDENTITY (1,1) CONSTRAINT PK_Cliente PRIMARY KEY,
+      ...
+    );
+
+- CONSTRAINT FOREIGN KEY
+
+CONSTRAINT´s de domínio
     
-    ALTER TABLE ADD CONSTRAINT
+ALTER TABLE ADD CONSTRAINT
 
