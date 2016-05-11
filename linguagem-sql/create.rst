@@ -63,6 +63,7 @@ Também podemos adiconar CONSTRAINT´s através do comando ALTER TABLE ... ADD C
 
  .. code-block:: sql
     :linenos:
+
     ALTER TABLE Contas ADD CONSTRAINT FK_CLIENTES_CONTAS FOREIGN KEY  (ClienteCodigo) REFERENCES Clientes(ClienteCodigo);
 
 
