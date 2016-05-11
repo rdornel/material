@@ -10,7 +10,9 @@ O Primeiro comando é o CREATE DATABASE, que cria o Banco de dados e suas depend
 Vale lembrar que alguns sistemas gerenciadores de bancos de dados podem implementar maneiras diferentes de tratar os bancos de dados ou espaços de trabalho de cada usuário ou sistema.
 Sugiro a leitura do link abaixo, que explica como o Oracle trabalha, ao contrário do SQL Server que vemos em sala de aula.
 
-http://www.oracle.com
+http://www.oracle.com/technetwork/pt/articles/database-performance/introducao-conceito-de-tablespaces-495850-ptb.html
+
+No nosso banco de dados de Exemplo temos a criação básica de um banco de dados e a criação de uma tabela chamada Clientes.
 
   .. code-block:: sql
     :linenos:
@@ -21,8 +23,12 @@ http://www.oracle.com
       ClienteCodigo int,
       ClienteNome varchar(20)
     );
+       
+Podemos ter variações do comando CREATE TABLE de acordo com a necessidade.
     
-    CREATE CONSTRAINT
+    CONSTRAINT PRIMARY KEY
+    CONSTRAINT FOREIGN KEY
+    CONSTRAINT´s de domínio
     
     ALTER TABLE ADD CONSTRAINT
 
