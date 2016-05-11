@@ -69,12 +69,14 @@ Também podemos adiconar CONSTRAINT´s através do comando ALTER TABLE ... ADD C
 - CONSTRAINT´s de domínio
  .. code-block:: sql
     :linenos:
-    ALTER TABLE Persons ADD CONSTRAINT chk_Person CHECK (P_Id>0 AND City='Sandnes');
+    ALTER TABLE Persons ADD CONSTRAINT chk_Person CHECK (P_Id>0 AND City='Sandnes')
+    ;
 
 Apenas checando uma condição
 
   .. code-block:: sql
     :linenos:    
      ALTER TABLE Persons ADD CHECK (P_Id>0)
+     ;
 
 
