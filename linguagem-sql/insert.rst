@@ -18,7 +18,10 @@ da tabela Clientes mostando que o campo ClienteCodigo é IDENTITY, portanto não
 
 Quando vamos fazer o INSERT em uma tabela que não possui o campo IDENTITY passamos o valor desejado, mesmo que o campo seja PRIMARY KEY.
 
-INSERT Clientes (ClienteCodigo,ClienteNome) VALUES (1,'Nome do Cliente');
+  .. code-block:: sql
+    :linenos:
+    
+    INSERT Clientes (ClienteCodigo,ClienteNome) VALUES (1,'Nome do Cliente');
     
     create table Clientes
     (
