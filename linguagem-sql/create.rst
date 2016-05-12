@@ -30,6 +30,7 @@ Podemos ter variações do comando CREATE TABLE de acordo com a necessidade.
 Abaixo temos diversas implementações do comando CREATE e suas CONSTRAINT´s.
     
 - CONSTRAINT PRIMARY KEY & IDENTITY
+
 Nesse exemplo adicionamos uma chave primária ao campo ClienteCodigo e configuramos a propriedade IDENTITY que vai gerar um número com incremento de (um) a cada inserção na tabela Clientes. Você pode personalizar o incremento de acordo com sua necessidade, neste exemplo temos (1,1) iniciando em um e inrementando um.
 
   .. code-block:: sql
@@ -41,6 +42,7 @@ Nesse exemplo adicionamos uma chave primária ao campo ClienteCodigo e configura
     );
 
 - CONSTRAINT FOREIGN KEY
+
 Neste exemplo temos a criação da FOREIGN KEY dentro do bloco de comando CREATE. Se tratando de uma chave estrangeira temos que tomar o cuidado de referenciar tabelas que já existem para evitar erros. 
 Repare que no comando abaixo estamos criando uma tabela nova chamada Contas e especificando que o código de cliente deverá estar cadastrado na tabela de Cliente, portanto deve existir antes uma tabela Cliente que será referenciada nessa chave estrangeira FOREIGN KEY.
 Repare que sempre damos um nome para a CONSTRAINT, isso é uma boa prática, para evitar que o sistema dê nomes automáticos. 
@@ -59,6 +61,7 @@ Repare que sempre damos um nome para a CONSTRAINT, isso é uma boa prática, par
      );  
 
 - ALTER TABLE ADD CONSTRAINT
+
 Também podemos adiconar CONSTRAINT´s através do comando ALTER TABLE ... ADD CONSTRAINT. Geralmente após criar todas as entidades podemos então criar as restrições entre elas.
 
  .. code-block:: sql
@@ -69,6 +72,7 @@ Também podemos adiconar CONSTRAINT´s através do comando ALTER TABLE ... ADD C
 
 
 - CONSTRAINT´s de domínio
+
  .. code-block:: sql
     :linenos:
     
