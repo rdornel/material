@@ -14,8 +14,16 @@ da tabela Clientes mostando que o campo ClienteCodigo é IDENTITY, portanto não
     
     create table Clientes
     (
-    ClienteCodigo int IDENTITY CONSTRAINT PK_CLIENTES PRIMARY KEY,
+    ClienteCodigo int IDENTITY CONSTRAINT PK_CLIENTES PRIMARY KEY...
+
+Quando vamos fazer o INSERT em uma tabela que não possui o campo IDENTITY passamos o valor desejado, mesmo que o campo seja PRIMARY KEY.
+
+INSERT Clientes (ClienteCodigo,ClienteNome) VALUES (1,'Nome do Cliente');
+    
+    create table Clientes
+    (
+    ClienteCodigo int CONSTRAINT PK_CLIENTES PRIMARY KEY...
     
     INSERT Clientes (colunas) VALUES (valores)
-    
+        
     INSERT INTO Clientes SELECT * FROM ...
