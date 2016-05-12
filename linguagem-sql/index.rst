@@ -10,3 +10,6 @@ http://www.w3schools.com/sql/
 
   create.rst
   insert.rst
+  select.rst
+  update.rst
+  delete.rst
