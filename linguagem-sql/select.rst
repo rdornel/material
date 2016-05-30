@@ -26,10 +26,21 @@ SELECT
     
 - Repare que a tabela Clientes possui uma chave no ClienteCodigo, portanto se você fizer alguma busca ou solicitar o campo ClienteCodigo a busca será muito mais rápida. Caso você faça alguma busca por algum campo que não seja chave ou não esteja "indexado" (Veremos índice mais pra frente) a busca vai resultar em uma varredura da tabela, o que não é um bom negócio para o banco de dados.
 
-- Para escrever um comando SELECT procuramos mostrar ou buscar apenas os atributos que vamos trabalhar, evitando assim carregadar dados desecessários e que serão descartados na hora da montagem do formulário da aplicação.
+- Para escrever um comando SELECT procuramos mostrar ou buscar apenas os atributos que vamos trabalhar, evitando assim carregadar dados desecessários e que serão descartados na hora da montagem do formulário da aplicação. Também recomendamos o uso do nome da Tabela antes dos campos para evitar erros de ambíguidade que geralmente aparecem quando usamos mais de uma tabela.
 
   .. code-block:: sql
     :linenos:
     
     SELECT Clientes.ClienteNome FROM Clientes
+
+- Você pode usar o comando AS para dar apelidos aos campos e tabelas para melhorar a visualiação e compreensão.
+
+  .. code-block:: sql
+    :linenos:
+    
+    SELECT Clientes.ClienteNome  as Nome FROM Clientes;
+    
+    SELECT C.ClienteNome FROM Clientes as C;
+    
+
     
