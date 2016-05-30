@@ -82,3 +82,14 @@ SELECT
 
 - Comando Like 
    
+  .. code-block:: sql
+    :linenos:
+    SELECT ClienteRua FROM dbo.Clientes WHERE ClienteRua  LIKE 'a%' AND ClienteRua  NOT LIKE 'E%'
+
+    SELECT ClienteRua FROM dbo.Clientes WHERE ClienteRua  LIKE '%a%'
+
+    SELECT ClienteRua FROM dbo.Clientes WHERE ClienteRua  LIKE '%a'
+
+    SELECT ClienteRua FROM dbo.Clientes WHERE ClienteRua  NOT LIKE 'a%'
+    
+    
