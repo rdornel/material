@@ -31,7 +31,7 @@ SELECT
   .. code-block:: sql
     :linenos:
     
-    SELECT Clientes.ClienteNome FROM Clientes
+    SELECT Clientes.ClienteNome FROM Clientes;
 
 - Você pode usar o comando AS para dar apelidos aos campos e tabelas para melhorar a visualiação e compreensão.
 
@@ -48,10 +48,10 @@ SELECT
     :linenos:
     
     SELECT Clientes.ClienteNome FROM Clientes
-    ORDER BY Clientes.ClienteNome
+    ORDER BY Clientes.ClienteNome;
 
     SELECT Clientes.ClienteNome FROM Clientes
-    ORDER BY Clientes.ClienteNome DESC
+    ORDER BY Clientes.ClienteNome DESC;
 
 - Outro operador que é muito utilizado em parceria com o ORDER BY é o TOP, que permite limitar o conjunto de linhas retornado. Caso ele não esteja associado com o ORDER BY ele trará um determinado conjunto de dados baseado na ordem em que estão armazenados. Caso você use um operdaor ORDER BY ele mostrar os TOP maiores ou menores. O Primeiro exemplo mostra as duas maiores contas em relação ao seu saldo. A segunda, as duas menores.
 
@@ -59,9 +59,26 @@ SELECT
     :linenos:
 
     SELECT TOP 2 ContaNumero, ContaSaldo FROM Contas
-    ORDER BY ContaSaldo DESC
+    ORDER BY ContaSaldo DESC;
 
     SELECT TOP 2 ContaNumero, ContaSaldo FROM Contas
-    ORDER BY ContaSaldo
+    ORDER BY ContaSaldo;
 
+- Podemos usar mais de uma tabela no comando FROM como falamos anteriormente, porém devemos respeitar seus relacionamentos para evitar situações como o exemplo abaixo. Execute o comando e veja o que acontece.
 
+  .. code-block:: sql
+    :linenos:
+    
+    SELECT * FROM Clientes, Contas;
+    
+- A maneira correta deve levar em consideração que as tabelas que serão usadas tem relação entre si "chaves", caso não tenham, poderá ser necessário passar por um outra tabela antes. Lembre-se das tabelas associativas.
+
+  .. code-block:: sql
+    :linenos:
+
+    SELECT CLientes.ClienteNome, Contas.ContaSaldo 
+    FROM Clientes, Contas
+    where Clientes.ClienteCodigo=Contas.ClienteCodigo
+
+- Comando Like 
+   
