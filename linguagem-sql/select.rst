@@ -42,5 +42,26 @@ SELECT
     
     SELECT C.ClienteNome FROM Clientes as C;
     
-
+- Você pode usar o operador ORDER BY para ordenar os registros da tabela. Procure identificar os campos da ordenação e verificar se eles possuem alguma ordenação na tabela através de algum índice. As opererações de ordenação são muito custozas para o banco de dados. A primeira opção traz os campos ordenados em ordem ascendente ASC, não precisando informar o operador. Caso você deseje uma ordenação descendente DESC você deverá informar o DESC.
+  
+  .. code-block:: sql
+    :linenos:
     
+    SELECT Clientes.ClienteNome FROM Clientes
+    ORDER BY Clientes.ClienteNome
+
+    SELECT Clientes.ClienteNome FROM Clientes
+    ORDER BY Clientes.ClienteNome DESC
+
+- Outro operador que é muito utilizado em parceria com o ORDER BY é o TOP, que permite limitar o conjunto de linhas retornado. Caso ele não esteja associado com o ORDER BY ele trará um determinado conjunto de dados baseado na ordem em que estão armazenados. Caso você use um operdaor ORDER BY ele mostrar os TOP maiores ou menores. O Primeiro exemplo mostra as duas maiores contas em relação ao seu saldo. A segunda, as duas menores.
+
+  .. code-block:: sql
+    :linenos:
+
+    SELECT TOP 2 ContaNumero, ContaSaldo FROM Contas
+    ORDER BY ContaSaldo DESC
+
+    SELECT TOP 2 ContaNumero, ContaSaldo FROM Contas
+    ORDER BY ContaSaldo
+
+
