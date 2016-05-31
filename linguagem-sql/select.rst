@@ -81,4 +81,14 @@ SELECT
     where Clientes.ClienteCodigo=Contas.ClienteCodigo
 
 - Comando Like 
+
+  .. code-block:: sql
+    :linenos:
+    
+  SELECT * FROM Clientes WHERE ClienteNome LIKE 'a%';
+
+  SELECT * FROM Clientes WHERE ClienteNome LIKE '%a';
+
+  SELECT * FROM Clientes WHERE ClienteNome LIKE '%lia%';
+
    
