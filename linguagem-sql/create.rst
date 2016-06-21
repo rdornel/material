@@ -82,7 +82,7 @@ Abaixo a mensagem de tentativa de violação da CONSTRAINT acima.
     
 **The INSERT statement conflicted with the CHECK constraint "chk_cliente_saldo". The conflict occurred in database "MinhaCaixa", table "dbo.Clientes".**
 
-Apenas checando uma condi, data de nascimento menor que data atual. No SQL Server para pegarmos a data atual usamos *GETDATE()*
+Apenas checando uma condição, data de nascimento menor que data atual. No SQL Server para pegarmos a data atual usamos *GETDATE()*
 
   .. code-block:: sql
     :linenos:  
