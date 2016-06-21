@@ -7,4 +7,4 @@ DELETE
  .. code-block:: sql
     :linenos:
     
-    DELETE FROM CartaoCredito SET CartaoLimite = 1000 WHERE ClienteCodigo = 1;
+    DELETE FROM CartaoCredito WHERE ClienteCodigo = 1;
