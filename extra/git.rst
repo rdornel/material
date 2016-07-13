@@ -4,10 +4,11 @@ Git
 Links de material
 -----------------
 
-Livros
-~~~~~~
+Livros / Documentação
+~~~~~~~~~~~~~~~~~~~~~
 
 - Pro Git (`v2 inglês <https://git-scm.com/book/en/v2>`_) (`v1 português <https://git-scm.com/book/pt-br/v1>`_)
+- `Getting Git Right <https://www.atlassian.com/git/>`_
 
 
 Tutoriais
