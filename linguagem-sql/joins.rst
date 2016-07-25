@@ -1,7 +1,10 @@
 JOINS
 ======
 
-- Existem diversos tipos de JOINS.
+- Existem diversos tipos de JOINS. O mais tradicional e restritivo é o JOIN ou INNER JOIN que requer 
+que o registros usado na comparação exista em ambas as tabelas.
+No exemplo abaixo, o ClienteCodigo não poderá ser vazio em nenhuma das tabelas envolvidas, caso isso ocorra,
+aquela linha não será retornada no resultado.
 
   .. code-block:: sql
     :linenos:
@@ -14,7 +17,7 @@ JOINS
               INNER JOIN  Contas 
                   ON Clientes.ClienteCodigo=Contas.ClienteCodigo;
 
-- lEFT JOIN.
+- LEFT JOIN.
 
   .. code-block:: sql
     :linenos:
