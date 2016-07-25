@@ -80,7 +80,11 @@ SELECT
     FROM Clientes, Contas
     where Clientes.ClienteCodigo=Contas.ClienteCodigo
 
-- Comando Like
+- Comando LIKE
+
+http://technet.microsoft.com/en-us/library/ms174214(v=sql.110).aspx
+
+http://msdn.microsoft.com/en-us/library/ms179859.aspx
 
   .. code-block:: sql
     :linenos:
@@ -92,3 +96,54 @@ SELECT
     SELECT ClienteRua FROM dbo.Clientes WHERE ClienteRua  LIKE '%a'
 
     SELECT ClienteRua FROM dbo.Clientes WHERE ClienteRua  NOT LIKE 'a%'
+    
+    
+
+- Comando CASE
+
+  .. code-block:: sql
+    :linenos:
+ 
+    SELECT ContaNumero, 
+        CASE 
+        WHEN ContaSaldo < 200 THEN 'Cliente C'
+    WHEN ContaSaldo < 500 THEN 'Cliente B'
+    ELSE 'Cliente A' END AS 'Curva Cliente'
+    FROM dbo.Contas
+
+- Operadores condicionais: = (igual), <> (diferente), >, <, <=, >=, OR (ou), AND (e) e BETWEEN
+
+  .. code-block:: sql
+    :linenos:
+
+    SELECT  Nome_agencia ,
+            Numero_conta ,
+            saldo
+    FROM    Conta
+    WHERE   saldo > 500 AND Nome_agencia = 'Joinville'
+
+
+
+- ALIAS
+
+  .. code-block:: sql
+    :linenos:
+    SELECT Nome_agencia,C.Numero_conta,saldo AS [Total em Conta],
+    Nome_cliente,D.Numero_conta AS 'Conta do Cliente'
+      FROM Conta AS C, Depositante AS D
+            WHERE C.Numero_conta=D.Numero_conta AND Nome_cliente IN ('Rodrigo','Laura')
+      ORDER BY saldo DESC
+
+
+- DISTINCT
+
+  SELECT DISTINCT Cidade_agencia FROM Agencia
+
+
+- SUB CONSULTA
+
+- UNION e UNION ALL
+
+- FUNÇÕES DE AGREGAÇÃO
+
+- FUNÇÕES DE Data e Hora
