@@ -13,3 +13,4 @@ http://www.w3schools.com/sql/
   select.rst
   update.rst
   delete.rst
+  joins.rst
