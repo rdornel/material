@@ -96,8 +96,7 @@ http://msdn.microsoft.com/en-us/library/ms179859.aspx
     SELECT ClienteRua FROM dbo.Clientes WHERE ClienteRua  LIKE '%a'
 
     SELECT ClienteRua FROM dbo.Clientes WHERE ClienteRua  NOT LIKE 'a%'
-    
-    
+     
 
 - Comando CASE
 
@@ -121,7 +120,6 @@ http://msdn.microsoft.com/en-us/library/ms179859.aspx
             saldo
     FROM    Conta
     WHERE   saldo > 500 AND Nome_agencia = 'Joinville'
-
 
 
 - ALIAS
@@ -181,17 +179,12 @@ http://msdn.microsoft.com/en-us/library/ms179859.aspx
 
   .. code-block:: sql
 	:linenos:
-	SELECT * FROM dbo.Contas 
-	WHERE YEAR(ContaAbertura) = '2011'
-	ORDER BY ContaAbertura 
-	
+		
 	SET DATEFORMAT YDM
 
 	SET LANGUAGE PORTUGUESE
 
-	SELECT YEAR(getdate())
-
-	-YEAR(dbo.Clientes.ClienteNascimento),
+	SELECT YEAR(getdate()) -YEAR(dbo.Clientes.ClienteNascimento),
 
 	DATEDIFF(YEAR,ClienteNascimento,GETDATE()),
 
@@ -204,4 +197,12 @@ http://msdn.microsoft.com/en-us/library/ms179859.aspx
 	DATENAME(MONTH,(GETDATE()))
 
 	FROM dbo.Clientes
+
+  .. code-block:: sql
+	:linenos:
+	
+	SELECT * FROM dbo.Contas 
+	WHERE YEAR(ContaAbertura) = '2011'
+	ORDER BY ContaAbertura 
+	
 	
