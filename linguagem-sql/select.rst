@@ -128,6 +128,7 @@ http://msdn.microsoft.com/en-us/library/ms179859.aspx
 
   .. code-block:: sql
     :linenos:
+	
     SELECT Nome_agencia,C.Numero_conta,saldo AS [Total em Conta],
     Nome_cliente,D.Numero_conta AS 'Conta do Cliente'
       FROM Conta AS C, Depositante AS D
@@ -137,7 +138,10 @@ http://msdn.microsoft.com/en-us/library/ms179859.aspx
 
 - DISTINCT
 
-  SELECT DISTINCT Cidade_agencia FROM Agencia
+  .. code-block:: sql
+    :linenos:
+	
+	SELECT DISTINCT Cidade_agencia FROM Agencia
 
 
 - SUB CONSULTA, IN e NOT IN
@@ -175,4 +179,4 @@ http://msdn.microsoft.com/en-us/library/ms179859.aspx
 	WHERE YEAR(ContaAbertura) = '2011'
 	ORDER BY ContaAbertura 
 
-	
+
