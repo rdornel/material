@@ -149,9 +149,13 @@ http://msdn.microsoft.com/en-us/library/ms179859.aspx
 
 - UNION e UNION ALL
 
-- FUNÇÕES DE AGREGAÇÃO
-	
-	SUM, MIN, MAX, COUNT, AVG
+  .. code-block:: sql
+    :linenos:
+	SELECT ClienteNome FROM dbo.Clientes WHERE ClienteCodigo = 1
+	UNION ALL
+	SELECT ClienteNome FROM dbo.Clientes WHERE ClienteCodigo = 1
+
+- FUNÇÕES DE AGREGAÇÃO, SUM, MIN, MAX, COUNT, AVG
   
   .. code-block:: sql
     :linenos:
@@ -160,14 +164,15 @@ http://msdn.microsoft.com/en-us/library/ms179859.aspx
 	FROM Contas, dbo.Agencias
 	WHERE Agencias.AgenciaCodigo=Contas.AgenciaCodigo
 	GROUP BY AgenciaNome 
-	HAVING SUM(ContaSaldo) > (SELECT MAX(ContaSaldo) AS VALORMETA 
-								FROM dbo.Contas AS META)
+	HAVING SUM(ContaSaldo) > (SELECT MAX(ContaSaldo) AS VALORMETA FROM Contas AS META)
 	ORDER BY 2 DESC
 
 - FUNÇÕES DE Data e Hora
 
   .. code-block:: sql
-		:linenos:
+	:linenos:
 	SELECT * FROM dbo.Contas 
 	WHERE YEAR(ContaAbertura) = '2011'
 	ORDER BY ContaAbertura 
+
+	
