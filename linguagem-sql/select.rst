@@ -140,10 +140,34 @@ http://msdn.microsoft.com/en-us/library/ms179859.aspx
   SELECT DISTINCT Cidade_agencia FROM Agencia
 
 
-- SUB CONSULTA
+- SUB CONSULTA, IN e NOT IN
+
+  .. code-block:: sql
+    :linenos:
+	SELECT AgenciaCodigo FROM dbo.Agencias 
+	WHERE AgenciaCodigo NOT IN ('1','4')
 
 - UNION e UNION ALL
 
 - FUNÇÕES DE AGREGAÇÃO
+	
+	SUM, MIN, MAX, COUNT, AVG
+  
+  .. code-block:: sql
+    :linenos:
+	
+	SELECT TOP 2 AgenciaNome, SUM(ContaSaldo) AS TOTAL
+	FROM Contas, dbo.Agencias
+	WHERE Agencias.AgenciaCodigo=Contas.AgenciaCodigo
+	GROUP BY AgenciaNome 
+	HAVING SUM(ContaSaldo) > (SELECT MAX(ContaSaldo) AS VALORMETA 
+								FROM dbo.Contas AS META)
+	ORDER BY 2 DESC
 
 - FUNÇÕES DE Data e Hora
+
+  .. code-block:: sql
+		:linenos:
+	SELECT * FROM dbo.Contas 
+	WHERE YEAR(ContaAbertura) = '2011'
+	ORDER BY ContaAbertura 
