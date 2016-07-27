@@ -82,9 +82,7 @@ SELECT
 
 - Comando LIKE
 
-http://technet.microsoft.com/en-us/library/ms174214(v=sql.110).aspx
-
-http://msdn.microsoft.com/en-us/library/ms179859.aspx
+`Documentação do comando LIKE <http://msdn.microsoft.com/en-us/library/ms179859.aspx/>`_
 
   .. code-block:: sql
     :linenos:
