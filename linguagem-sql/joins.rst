@@ -5,18 +5,7 @@ JOINS
 No exemplo abaixo, o ClienteCodigo não poderá ser vazio em nenhuma das tabelas envolvidas, caso isso ocorra, aquela linha não será retornada no resultado.
 
 .. figure:: http://i.stack.imgur.com/1Tfy0.jpg
-   :scale: 50 %
-   :alt: map to buried treasure
-
-.. image:: http://i.stack.imgur.com/1Tfy0.jpg
-   :height: 100px
-   :width: 200 px
-   :scale: 50 %
-   :alt: alternate text
-   :align: right
-   
-.. figure:: img/joins.jpg
-   :scale: 50 %
+   :scale: 30 %
    :alt: map to buried treasure
 
 `Representação visual das Joins <http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins/>`_
