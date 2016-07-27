@@ -148,6 +148,7 @@ http://msdn.microsoft.com/en-us/library/ms179859.aspx
 
   .. code-block:: sql
     :linenos:
+	
 	SELECT AgenciaCodigo FROM dbo.Agencias 
 	WHERE AgenciaCodigo NOT IN ('1','4')
 
@@ -155,6 +156,7 @@ http://msdn.microsoft.com/en-us/library/ms179859.aspx
 
   .. code-block:: sql
     :linenos:
+	
 	SELECT ClienteNome FROM dbo.Clientes WHERE ClienteCodigo = 1
 	UNION ALL
 	SELECT ClienteNome FROM dbo.Clientes WHERE ClienteCodigo = 1
