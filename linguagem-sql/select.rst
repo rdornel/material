@@ -180,5 +180,24 @@ http://msdn.microsoft.com/en-us/library/ms179859.aspx
 	SELECT * FROM dbo.Contas 
 	WHERE YEAR(ContaAbertura) = '2011'
 	ORDER BY ContaAbertura 
+	
+	SET DATEFORMAT YDM
 
+	SET LANGUAGE PORTUGUESE
 
+	SELECT YEAR(getdate())
+
+	-YEAR(dbo.Clientes.ClienteNascimento),
+
+	DATEDIFF(YEAR,ClienteNascimento,GETDATE()),
+
+	DATEPART(yy,ClienteNascimento),
+
+	dateadd(yy,1,ClienteNascimento),
+
+	EOMONTH(GETDATE()),
+
+	DATENAME(MONTH,(GETDATE()))
+
+	FROM dbo.Clientes
+	
