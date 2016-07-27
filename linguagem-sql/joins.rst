@@ -1,16 +1,10 @@
 JOINS
 ======
 
-- Existem diversos tipos de JOINS. O mais tradicional e restritivo é o JOIN ou INNER JOIN que requer 
-que o registros usado na comparação exista em ambas as tabelas.
-No exemplo abaixo, o ClienteCodigo não poderá ser vazio em nenhuma das tabelas envolvidas, caso isso ocorra,
-aquela linha não será retornada no resultado.
-
-- Representação visual das Joins
+- Existem diversos tipos de JOINS. O mais tradicional e restritivo é o JOIN ou INNER JOIN que requer que o registros usado na comparação exista em ambas as tabelas.
+No exemplo abaixo, o ClienteCodigo não poderá ser vazio em nenhuma das tabelas envolvidas, caso isso ocorra, aquela linha não será retornada no resultado.
 
 `Representação visual das Joins <http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins/>`_
-
-http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins
 
   .. code-block:: sql
     :linenos:
@@ -52,3 +46,5 @@ http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins
     :linenos:
 
     SELECT * FROM CLIENTES CROSS JOIN Contas;
+
+
