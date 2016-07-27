@@ -4,6 +4,9 @@ JOINS
 - Existem diversos tipos de JOINS. O mais tradicional e restritivo é o JOIN ou INNER JOIN que requer que o registros usado na comparação exista em ambas as tabelas.
 No exemplo abaixo, o ClienteCodigo não poderá ser vazio em nenhuma das tabelas envolvidas, caso isso ocorra, aquela linha não será retornada no resultado.
 
+.. figure:: http://i.stack.imgur.com/1Tfy0.jpg
+   :scale: 50 %
+   :alt: map to buried treasure
 
 .. image:: http://i.stack.imgur.com/1Tfy0.jpg
    :height: 100px
@@ -11,6 +14,10 @@ No exemplo abaixo, o ClienteCodigo não poderá ser vazio em nenhuma das tabelas
    :scale: 50 %
    :alt: alternate text
    :align: right
+   
+.. figure:: img/joins.jpg
+   :scale: 50 %
+   :alt: map to buried treasure
 
 `Representação visual das Joins <http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins/>`_
 
