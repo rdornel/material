@@ -6,6 +6,12 @@ que o registros usado na comparação exista em ambas as tabelas.
 No exemplo abaixo, o ClienteCodigo não poderá ser vazio em nenhuma das tabelas envolvidas, caso isso ocorra,
 aquela linha não será retornada no resultado.
 
+- Representação visual das Joins
+
+`Representação visual das Joins <http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins/>`_
+
+http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins
+
   .. code-block:: sql
     :linenos:
 
