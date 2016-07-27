@@ -8,7 +8,7 @@ No exemplo abaixo, o ClienteCodigo não poderá ser vazio em nenhuma das tabelas
    :scale: 30 %
    :alt: map to buried treasure
 
-`Fonte da imagem: Representação visual das Joins  <http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins/>`_
+`Fonte da imagem: Representação Visual das Joins  <http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins/>`_
 
   .. code-block:: sql
     :linenos:
