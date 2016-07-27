@@ -158,6 +158,10 @@ http://msdn.microsoft.com/en-us/library/ms179859.aspx
     :linenos:
 	
 	SELECT ClienteNome FROM dbo.Clientes WHERE ClienteCodigo = 1
+	UNION 
+	SELECT ClienteNome FROM dbo.Clientes WHERE ClienteCodigo = 2
+	
+	SELECT ClienteNome FROM dbo.Clientes WHERE ClienteCodigo = 1
 	UNION ALL
 	SELECT ClienteNome FROM dbo.Clientes WHERE ClienteCodigo = 1
 
