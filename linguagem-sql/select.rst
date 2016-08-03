@@ -102,9 +102,7 @@ SELECT
     :linenos:
  
     SELECT ContaNumero, 
-        CASE 
-        WHEN ContaSaldo < 200 THEN 'Cliente C'
-    WHEN ContaSaldo < 500 THEN 'Cliente B'
+    CASE WHEN ContaSaldo < 200 THEN 'Cliente C' WHEN ContaSaldo < 500 THEN 'Cliente B'
     ELSE 'Cliente A' END AS 'Curva Cliente'
     FROM dbo.Contas;
 
@@ -113,9 +111,7 @@ SELECT
   .. code-block:: sql
     :linenos:
 
-    SELECT  Nome_agencia ,
-            Numero_conta ,
-            saldo
+    SELECT  Nome_agencia , Numero_conta , saldo
     FROM    Conta
     WHERE   saldo > 500 AND Nome_agencia = 'Joinville';
 

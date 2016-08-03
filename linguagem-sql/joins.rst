@@ -27,12 +27,12 @@ No exemplo abaixo, o ClienteCodigo não poderá ser vazio em nenhuma das tabelas
     :linenos:
 
     SELECT ClienteNome, ContaSaldo, 
-		CASE WHEN CartaoCodigo IS NULL THEN 'LIGAR' ELSE 'NÃO INCOMODAR' END AS 'NN'
+	CASE WHEN CartaoCodigo IS NULL THEN 'LIGAR' ELSE 'NÃO INCOMODAR' END AS 'NN'
 	FROM Clientes 
 	INNER JOIN Contas
-		ON (Contas.ClienteCodigo = Clientes.ClienteCodigo)
+	ON (Contas.ClienteCodigo = Clientes.ClienteCodigo)
 	LEFT JOIN dbo.CartaoCredito
-		ON (CartaoCredito.ClienteCodigo = Clientes.ClienteCodigo)
+	ON (CartaoCredito.ClienteCodigo = Clientes.ClienteCodigo);
 
     
 - RIGHT    
