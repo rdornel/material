@@ -106,7 +106,7 @@ SELECT
         WHEN ContaSaldo < 200 THEN 'Cliente C'
     WHEN ContaSaldo < 500 THEN 'Cliente B'
     ELSE 'Cliente A' END AS 'Curva Cliente'
-    FROM dbo.Contas
+    FROM dbo.Contas;
 
 - Operadores condicionais: = (igual), <> (diferente), >, <, <=, >=, OR (ou), AND (e) e BETWEEN
 
@@ -117,7 +117,10 @@ SELECT
             Numero_conta ,
             saldo
     FROM    Conta
-    WHERE   saldo > 500 AND Nome_agencia = 'Joinville'
+    WHERE   saldo > 500 AND Nome_agencia = 'Joinville';
+
+	SELECT AgenciaCodigo FROM dbo.Agencias 
+	WHERE AgenciaCodigo BETWEEN 1 AND 3;
 
 
 - ALIAS
@@ -147,6 +150,16 @@ SELECT
 	
 	SELECT AgenciaCodigo FROM dbo.Agencias 
 	WHERE AgenciaCodigo NOT IN ('1','4')
+	
+	SELECT Contas.ContaNumero, Contas.ContaSaldo, Contas.AgenciaCodigo
+	FROM Contas INNER JOIN
+		(
+		SELECT AgenciaCodigo, MAX(ContaSaldo) AS VALOR
+		FROM Contas 
+		GROUP BY   AgenciaCodigo
+		) AS TB2 
+	ON 
+	TB2.AgenciaCodigo=Contas.AgenciaCodigo AND TB2.VALOR=Contas.ContaSaldo;
 
 - UNION e UNION ALL
 
@@ -172,6 +185,20 @@ SELECT
 	GROUP BY AgenciaNome 
 	HAVING SUM(ContaSaldo) > (SELECT MAX(ContaSaldo) AS VALORMETA FROM Contas AS META)
 	ORDER BY 2 DESC
+	
+	SELECT SUM(dbo.Contas.ContaSaldo),
+	AgenciaCodigo, ContaNumero
+	FROM Contas
+	GROUP BY AgenciaCodigo,ContaNumero
+	--WHERE COM AVG ???
+	--WHERE COM SUBCONSULTA ???
+	HAVING SUM(dbo.Contas.ContaSaldo) > (SELECT AVG(dbo.Contas.ContaSaldo) FROM dbo.Contas);--667,0833
+	
+	SELECT MAX(ContaSaldo) FROM dbo.Contas;
+	SELECT MIN(ContaSaldo) FROM dbo.Contas;
+	SELECT AVG(ContaSaldo) FROM dbo.Contas;
+	SELECT COUNT(*), COUNT(CONTAS.ClienteCodigo), COUNT(DISTINCT CONTAS.ClienteCodigo) FROM dbo.Contas;
+	
 
 - FUNÇÕES DE Data e Hora
 

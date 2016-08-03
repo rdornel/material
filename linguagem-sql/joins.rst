@@ -26,8 +26,13 @@ No exemplo abaixo, o ClienteCodigo não poderá ser vazio em nenhuma das tabelas
   .. code-block:: sql
     :linenos:
 
-    SELECT * FROM CLIENTES LEFT JOIN 
-      Emprestimos ON Clientes.ClienteCodigo=Emprestimos.ClienteCodigo;
+    SELECT ClienteNome, ContaSaldo, 
+		CASE WHEN CartaoCodigo IS NULL THEN 'LIGAR' ELSE 'NÃO INCOMODAR' END AS 'NN'
+	FROM Clientes 
+	INNER JOIN Contas
+		ON (Contas.ClienteCodigo = Clientes.ClienteCodigo)
+	LEFT JOIN dbo.CartaoCredito
+		ON (CartaoCredito.ClienteCodigo = Clientes.ClienteCodigo)
 
     
 - RIGHT    
