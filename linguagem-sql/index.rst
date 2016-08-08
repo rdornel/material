@@ -14,4 +14,4 @@ http://www.w3schools.com/sql/
   select_ParteDois.rst
   update.rst
   delete.rst
-  joins.rst
+
