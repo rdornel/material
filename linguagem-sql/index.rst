@@ -10,7 +10,8 @@ http://www.w3schools.com/sql/
 
   create.rst
   insert.rst
-  select.rst
+  select_ParteUm.rst
+  select_ParteDois.rst
   update.rst
   delete.rst
   joins.rst
