@@ -80,7 +80,7 @@ SELECT
     FROM Clientes, Contas
     where Clientes.ClienteCodigo=Contas.ClienteCodigo
 
-- Comando LIKE
+- O comando LIKE é usado para encontrar registros usando parte do que sabemos sobre ele. Por exemplo podemos buscar todas as pessoas que tenham nome começado com R, usando um coringa % (Percentual). Podemos fazer diversas combinação com o %.
 
 `Documentação do comando LIKE <http://msdn.microsoft.com/en-us/library/ms179859.aspx/>`_
 
@@ -96,7 +96,7 @@ SELECT
     SELECT ClienteRua FROM dbo.Clientes WHERE ClienteRua  NOT LIKE 'a%'
      
 
-- Comando CASE
+- O Comando CASE é utilizado quando queremos fazer validações e até gerar novar colunas durante a execução da consulta. No exemplo abaixo fazemos uma classificação de um cliente com base no seu saldo, gerando assim uma nova coluna Curva Cliente.
 
   .. code-block:: sql
     :linenos:
@@ -106,7 +106,7 @@ SELECT
     ELSE 'Cliente A' END AS 'Curva Cliente'
     FROM dbo.Contas;
 
-- Operadores condicionais: = (igual), <> (diferente), >, <, <=, >=, OR (ou), AND (e) e BETWEEN
+- Podemos incluir em nossas consultas diversos operadores condicionais: = (igual), <> (diferente), >, <, <=, >=, OR (ou), AND (e) e BETWEEN
 
   .. code-block:: sql
     :linenos:
@@ -119,7 +119,7 @@ SELECT
 	WHERE AgenciaCodigo BETWEEN 1 AND 3;
 
 
-- ALIAS
+- O ALIAS ou apleido ajuda na exibição de consultas e tabelas. Dessa forma podemos dar nomes amigáveis para campos e tabelas durante a execução de consultas. Use sempre o AS antes de cada ALIAS, mesmo sabendo que não é obrigatório.
 
   .. code-block:: sql
     :linenos:
@@ -131,7 +131,7 @@ SELECT
       ORDER BY saldo DESC
 
 
-- DISTINCT
+- O comando DISTINCT serve para retirar do retorno da consulta registros repitidos.
 
   .. code-block:: sql
     :linenos:
@@ -139,7 +139,7 @@ SELECT
 	SELECT DISTINCT Cidade_agencia FROM Agencia
 
 
-- SUB CONSULTA, IN e NOT IN
+- A SUB CONSULTA, IN e NOT IN são poderosos recursos para autilizar em buscas e filtragem de registros. Podemos criar subconjuntos de registros e usar operadores como IN para validar se os registros estão dentro daquele subconjunto.
 
   .. code-block:: sql
     :linenos:
@@ -157,7 +157,7 @@ SELECT
 	ON 
 	TB2.AgenciaCodigo=Contas.AgenciaCodigo AND TB2.VALOR=Contas.ContaSaldo;
 
-- UNION e UNION ALL
+- Os operadores UNION e UNION ALL ajudam a consolidar conjuntos de registros que são retornados por consultas distintas. O operador ALL faz a junção dos consultos sem eliminar duplicados. Precisamos obedecer o mesmo número de colunas e tipos de dados entre as consultas.
 
   .. code-block:: sql
     :linenos:
@@ -170,7 +170,7 @@ SELECT
 	UNION ALL
 	SELECT ClienteNome FROM dbo.Clientes WHERE ClienteCodigo = 1
 
-- FUNÇÕES DE AGREGAÇÃO, SUM, MIN, MAX, COUNT, AVG
+- As FUNÇÕES DE AGREGAÇÃO, SUM, MIN, MAX, COUNT, AVG
   
   .. code-block:: sql
     :linenos:
