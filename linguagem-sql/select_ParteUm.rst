@@ -1,5 +1,5 @@
-SELECT
-======
+SELECT Parte II
+===============
 
 - Comando utilizado para recuperar as informações armazenadas em um banco de dados. O comando SELECT é composto dos atributos que desejamos, a ou as tabela(s) que possuem esses atributos e as consdições que podem ajudar a filtrar os resultados desejados. Não é uma boa prática usar o * ou (star) para trazer os registros de uma tabela. Procure especificar somente os campos necessários. Isso ajuda o motor de execação de consultas a construir bons planos de execução. Se você conhecer a estrutura da tabela e seus índices, procure tirar proveito disso usando campos chaves, ou buscando e filtrando por atributos que fazem parte de chaves e índices no banco de dados.
 
@@ -170,7 +170,8 @@ SELECT
 	UNION ALL
 	SELECT ClienteNome FROM dbo.Clientes WHERE ClienteCodigo = 1
 
-- As FUNÇÕES DE AGREGAÇÃO, SUM, MIN, MAX, COUNT, AVG
+- As FUNÇÕES DE AGREGAÇÃO, SUM, MIN, MAX, COUNT, AVG permitem um nível mais robusto de informação, criando cojuntos de dados agrupados, médias entre outros, permitindo que possamos resumir e totatlizar comjuntos de resultados. Sempre que usarmos a função de agregação em conjunto com um campo agregador devemos usar a função GROUP BY para indicar qual o compo será o responsável pelo agrupamento das informações.
+Caso você deseje comparar conjuntos de informações contidos na função de agragação você deve compará-los usando o HAVING.
   
   .. code-block:: sql
     :linenos:
