@@ -88,7 +88,6 @@ Caso você deseje comparar conjuntos de informações contidos na função de ag
 
 - Exists
 
-- 
   .. code-block:: sql
     :linenos:
 
