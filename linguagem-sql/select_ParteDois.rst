@@ -93,7 +93,7 @@ Caso você deseje comparar conjuntos de informações contidos na função de ag
 
     SELECT * FROM Clientes;
 
-	
+- SELECT INTO	
 
 - FUNÇÕES DE Data e Hora
 
@@ -125,4 +125,9 @@ Caso você deseje comparar conjuntos de informações contidos na função de ag
 	WHERE YEAR(ContaAbertura) = '2011'
 	ORDER BY ContaAbertura 
 	
-	
+- Exercícios
+
+- 1) Mostre quais os clientes tem idade superior a média.	
+- 2) Mostre qual agência tem quantidade de clientes acima da média.
+- 3) Mostre o nome da agência o saldo total, o mínimo, o máximo e a quantidade de clientes de cada agência.
+- 4) Mostre o percentual que cada agencia representa no saldo total do banco.
