@@ -126,8 +126,8 @@ Caso você deseje comparar conjuntos de informações contidos na função de ag
 	ORDER BY ContaAbertura 
 	
 	
-- Exercícios
-
+Exercícios
+==========
 
 1-Mostre quais os clientes tem idade superior a média.	
 
