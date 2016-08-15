@@ -130,6 +130,15 @@ Exercícios
 ==========
 
 1-Mostre quais os clientes tem idade superior a média.	
+  .. code-block:: sql
+	:linenos:
+	
+	SELECT ClienteNome, YEAR(GETDATE()) - YEAR(ClienteNascimento) AS idade
+	FROM dbo.Clientes
+	WHERE YEAR(GETDATE()) - YEAR(ClienteNascimento) > 
+		(
+		SELECT AVG(YEAR(GETDATE()) -YEAR(ClienteNascimento)) AS IDADE FROM dbo.Clientes
+		)
 
 2-Mostre qual agência tem quantidade de clientes acima da média.
 
