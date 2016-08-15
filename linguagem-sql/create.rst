@@ -87,7 +87,8 @@ CONSTRAINT´s de domínio
 
 Abaixo a mensagem de tentativa de violação da ``CONSTRAINT`` acima.
 
-.. code-block::
+.. code-block:: text
+  :linenos:
 
   The INSERT statement conflicted with the CHECK constraint "chk_cliente_saldo". The conflict occurred in database "MinhaCaixa", table "dbo.Clientes".
 
@@ -96,4 +97,4 @@ Apenas checando uma condição, data de nascimento menor que data atual. No SQL 
 .. code-block:: sql
   :linenos:
 
-   ALTER TABLE Clientes ADD CONSTRAINT TESTE CHECK ([ClienteNascimento] < GETDATE());
+  ALTER TABLE Clientes ADD CONSTRAINT TESTE CHECK ([ClienteNascimento] < GETDATE());
