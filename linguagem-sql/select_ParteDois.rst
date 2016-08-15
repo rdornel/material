@@ -130,6 +130,7 @@ Exercícios
 ==========
 
 1-Mostre quais os clientes tem idade superior a média.	
+  
   .. code-block:: sql
 	:linenos:
 	
@@ -141,6 +142,17 @@ Exercícios
 		)
 
 2-Mostre qual agência tem quantidade de clientes acima da média.
+
+.. code-block:: sql
+	:linenos:
+	
+	SELECT AgenciaNome, COUNT(ClienteCodigo) AS QDTE
+	FROM dbo.Contas INNER JOIN dbo.Agencias 
+	ON Agencias.AgenciaCodigo = Contas.AgenciaCodigo
+	GROUP BY AgenciaNome
+	HAVING COUNT(ClienteCodigo) >
+	(SELECT COUNT(DISTINCT ClienteCodigo)/
+	COUNT(DISTINCT AgenciaCodigo) FROM dbo.Contas)
 
 3-Mostre o nome da agência o saldo total, o mínimo, o máximo e a quantidade de clientes de cada agência.
 
