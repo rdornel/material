@@ -125,6 +125,7 @@ Caso você deseje comparar conjuntos de informações contidos na função de ag
 	WHERE YEAR(ContaAbertura) = '2011'
 	ORDER BY ContaAbertura 
 	
+	
 - Exercícios
 
 
