@@ -53,7 +53,7 @@ SELECT - Nível 1
     SELECT Clientes.ClienteNome FROM Clientes
     ORDER BY Clientes.ClienteNome DESC;
 
-- Outro operador que é muito utilizado em parceria com o ORDER BY é o TOP, que permite limitar o conjunto de linhas retornado. Caso ele não esteja associado com o ORDER BY ele trará um determinado conjunto de dados baseado na ordem em que estão armazenados. Caso você use um operdaor ORDER BY ele mostrar os TOP maiores ou menores. O Primeiro exemplo mostra as duas maiores contas em relação ao seu saldo. A segunda, as duas menores.
+- Outro operador que é muito utilizado em parceria com o ORDER BY é o TOP, que permite limitar o conjunto de linhas retornado. Caso ele não esteja associado com o ORDER BY ele trará um determinado conjunto de dados baseado na ordem em que estão armazenados. Caso você use um operador ORDER BY ele mostrar os TOP maiores ou menores. O Primeiro exemplo mostra as duas maiores contas em relação ao seu saldo. A segunda, as duas menores.
 
   .. code-block:: sql
     :linenos:
@@ -119,7 +119,7 @@ SELECT - Nível 1
 	WHERE AgenciaCodigo BETWEEN 1 AND 3;
 
 
-- O ALIAS ou apleido ajuda na exibição de consultas e tabelas. Dessa forma podemos dar nomes amigáveis para campos e tabelas durante a execução de consultas. Use sempre o AS antes de cada ALIAS, mesmo sabendo que não é obrigatório.
+- O ALIAS ou apelido ajuda na exibição de consultas e tabelas. Dessa forma podemos dar nomes amigáveis para campos e tabelas durante a execução de consultas. Use sempre o AS antes de cada ALIAS, mesmo sabendo que não é obrigatório.
 
   .. code-block:: sql
     :linenos:
