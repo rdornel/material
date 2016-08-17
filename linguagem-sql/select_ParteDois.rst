@@ -154,3 +154,9 @@ Exercícios
 4. Mostre o percentual que cada agencia representa no saldo total do banco.
 
 5. Mostre as duas cidades que tem o maior saldo total
+
+6. Mostre qual a agência tem o maior montante de emprestimo
+
+7. Mostra qual o menor valor devido, o maior e o total devido	da tabela devedor
+
+8. Mostre o nome do cliente, se ele tem cartão de crédito ou não 	apenas do cliente que é o maior devedor.
