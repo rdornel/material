@@ -78,10 +78,14 @@ EXERCÍCIOS
 
 8. Mostre o nome do cliente, se ele tem cartão de crédito, apenas do cliente que é o maior devedor.
 
-SELECT TOP 1 --Experimente remover o TOP 1 para conferir o resultado
+
+  .. code-block:: sql
+    :linenos:
+
+	SELECT TOP 1 --Experimente remover o TOP 1 para conferir o resultado
 	ClienteNome
 	,CASE WHEN dbo.CartaoCredito.ClienteCodigo IS NULL THEN 'NÃO TEM CARTÃO CRÉDITO' ELSE 'TEM CARTÃO CRÉDITO' END AS 'CARTAO'
 	,DevedorSaldo FROM dbo.Clientes 
-INNER JOIN dbo.Devedores ON Devedores.ClienteCodigo = Clientes.ClienteCodigo
-LEFT JOIN dbo.CartaoCredito ON CartaoCredito.ClienteCodigo = Clientes.ClienteCodigo
-ORDER BY 2 DESC
+	INNER JOIN dbo.Devedores ON Devedores.ClienteCodigo = Clientes.ClienteCodigo
+	LEFT JOIN dbo.CartaoCredito ON CartaoCredito.ClienteCodigo = Clientes.ClienteCodigo
+	ORDER BY 2 DESC
