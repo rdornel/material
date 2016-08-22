@@ -24,6 +24,8 @@ Fonte da imagem: `Representação Visual das Joins <http://www.codeproject.com/A
 
 - LEFT JOIN
 
+O comando LEFT indica que todos os registros existentes na tabela da sua esquerda serão retornados e os registros da outra tabela da direita irão ser retornados ou então virão em branco.
+
   .. code-block:: sql
     :linenos:
 
@@ -32,11 +34,12 @@ Fonte da imagem: `Representação Visual das Joins <http://www.codeproject.com/A
       FROM Clientes
       INNER JOIN Contas
       ON (Contas.ClienteCodigo = Clientes.ClienteCodigo)
-      LEFT JOIN dbo.CartaoCredito
+      LEFT JOIN CartaoCredito
       ON (CartaoCredito.ClienteCodigo = Clientes.ClienteCodigo);
 
 - RIGHT
 
+Já o comando RIGHT traz todos os registros da tabela da direita e os registos da tabela da esquerda, mostrando em branco aqueles que não tem relação.
   .. code-block:: sql
     :linenos:
 
@@ -44,12 +47,16 @@ Fonte da imagem: `Representação Visual das Joins <http://www.codeproject.com/A
 
 - FULL
 
+O comando full retorna todos os registros das tabelas relacionadas, mesmo que não existe um correspondente entre elas.
+
   .. code-block:: sql
     :linenos:
 
     SELECT * FROM CartaoCredito FULL OUTER JOIN Clientes ON CartaoCredito.ClienteCodigo=Clientes.ClienteCodigo;
 
 - CROSS
+
+Efetua um operação de produto cartesiano, para cada registro de uma tabela ele efetua um relacionamento com os registros das outras tabelas.
 
   .. code-block:: sql
     :linenos:
@@ -65,36 +72,38 @@ Caso você deseje comparar conjuntos de informações contidos na função de ag
   :linenos:
 
   SELECT TOP 2 AgenciaNome, SUM(ContaSaldo) AS TOTAL
-    FROM Contas, dbo.Agencias
+    FROM Contas,  Agencias
     WHERE Agencias.AgenciaCodigo=Contas.AgenciaCodigo
     GROUP BY AgenciaNome
     HAVING SUM(ContaSaldo) > (SELECT MAX(ContaSaldo) AS VALORMETA FROM Contas AS META)
     ORDER BY 2 DESC;
 
-  SELECT SUM(dbo.Contas.ContaSaldo),
+  SELECT SUM( Contas.ContaSaldo),
     AgenciaCodigo, ContaNumero
     FROM Contas
     GROUP BY AgenciaCodigo,ContaNumero
     --WHERE COM AVG ???
     --WHERE COM SUBCONSULTA ???
-    HAVING SUM(dbo.Contas.ContaSaldo) > (SELECT AVG(dbo.Contas.ContaSaldo) FROM dbo.Contas); --667,0833
+    HAVING SUM( Contas.ContaSaldo) > (SELECT AVG( Contas.ContaSaldo) FROM  Contas); --667,0833
 
-  SELECT MAX(ContaSaldo) FROM dbo.Contas;
-  SELECT MIN(ContaSaldo) FROM dbo.Contas;
-  SELECT AVG(ContaSaldo) FROM dbo.Contas;
-  SELECT COUNT(*), COUNT(CONTAS.ClienteCodigo), COUNT(DISTINCT CONTAS.ClienteCodigo) FROM dbo.Contas;
+  SELECT MAX(ContaSaldo) FROM  Contas;
+  SELECT MIN(ContaSaldo) FROM  Contas;
+  SELECT AVG(ContaSaldo) FROM  Contas;
+  SELECT COUNT(*), COUNT(CONTAS.ClienteCodigo), COUNT(DISTINCT CONTAS.ClienteCodigo) FROM  Contas;
 
+- EXISTS
 
-- Variáveis
-
-- Exists
+O comando EXISTS é pareceido com o comando IN, quando queremos comparar mais de um campo contra uma subconsulta.
 
   .. code-block:: sql
     :linenos:
 
-    SELECT * FROM Clientes;
-
-- SELECT INTO
+    SELECT * FROM  Contas C
+	WHERE EXISTS
+			(SELECT * FROM  CartaoCredito CC
+				WHERE C.ClienteCodigo=CC.ClienteCodigo
+				AND C.AgenciaCodigo=CC.AgenciaCodigo
+			)
 
 - FUNÇÕES DE Data e Hora
 
@@ -105,18 +114,18 @@ Caso você deseje comparar conjuntos de informações contidos na função de ag
 
     SET LANGUAGE PORTUGUESE
 
-    SELECT YEAR(getdate()) -YEAR(dbo.Clientes.ClienteNascimento),
+    SELECT YEAR(getdate()) -YEAR( Clientes.ClienteNascimento),
       DATEDIFF(YEAR,ClienteNascimento,GETDATE()),
       DATEPART(yy,ClienteNascimento),
       dateadd(yy,1,ClienteNascimento),
       EOMONTH(GETDATE()),
       DATENAME(MONTH,(GETDATE()))
-    FROM dbo.Clientes;
+    FROM  Clientes;
 
   .. code-block:: sql
     :linenos:
 
-    SELECT * FROM dbo.Contas
+    SELECT * FROM  Contas
       WHERE YEAR(ContaAbertura) = '2011'
       ORDER BY ContaAbertura;
 	  
@@ -132,44 +141,17 @@ Muitas vezes necessitamos armazenar determinados valores para uso posterior. Um 
 	
 	declare @dia int
 	set @dia = (select day(getdate()))
-	
 
-Exercícios
-----------
-
-1. Mostre quais os clientes tem idade superior a média.
+- SELECT INTO	
 
   .. code-block:: sql
     :linenos:
 
-    SELECT ClienteNome, YEAR(GETDATE()) - YEAR(ClienteNascimento) AS idade
-      FROM dbo.Clientes
-      WHERE YEAR(GETDATE()) - YEAR(ClienteNascimento) >
-        (
-          SELECT AVG(YEAR(GETDATE()) -YEAR(ClienteNascimento)) AS IDADE FROM dbo.Clientes
-        );
+	SELECT Clientes.ClienteNome, 
+	DATEDIFF(YEAR,Clientes.ClienteNascimento,GETDATE()) AS IDADE
+	INTO ClientesIdade -- O comando INTO vem depois do campos listados no SELECT e antes do FROM.
+	FROM Clientes
 
-2. Mostre qual agência tem quantidade de clientes acima da média.
+	SELECT * FROM ClientesIdade
 
-  .. code-block:: sql
-    :linenos:
 
-    SELECT AgenciaNome, COUNT(ClienteCodigo) AS QDTE
-    FROM dbo.Contas INNER JOIN dbo.Agencias
-      ON Agencias.AgenciaCodigo = Contas.AgenciaCodigo
-    GROUP BY AgenciaNome
-    HAVING COUNT(ClienteCodigo) >
-      (SELECT COUNT(DISTINCT ClienteCodigo)/
-      COUNT(DISTINCT AgenciaCodigo) FROM dbo.Contas);
-
-3. Mostre o nome da agência o saldo total, o mínimo, o máximo e a quantidade de clientes de cada agência.
-
-4. Mostre o percentual que cada agencia representa no saldo total do banco.
-
-5. Mostre as duas cidades que tem o maior saldo total
-
-6. Mostre qual a agência tem o maior montante de emprestimo
-
-7. Mostra qual o menor valor devido, o maior e o total devido	da tabela devedor
-
-8. Mostre o nome do cliente, se ele tem cartão de crédito ou não 	apenas do cliente que é o maior devedor.
