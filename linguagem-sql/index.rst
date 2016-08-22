@@ -15,4 +15,5 @@ http://www.w3schools.com/sql/
   update.rst
   delete.rst
   exercicios.rst
+  view.rst
 
