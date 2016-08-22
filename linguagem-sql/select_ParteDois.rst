@@ -119,7 +119,20 @@ Caso você deseje comparar conjuntos de informações contidos na função de ag
     SELECT * FROM dbo.Contas
       WHERE YEAR(ContaAbertura) = '2011'
       ORDER BY ContaAbertura;
+	  
+- Variáveis
 
+Muitas vezes necessitamos armazenar determinados valores para uso posterior. Um exemplo é gardar um valor total em uma variável para que ele seja usado em cálculo de percentual por exemplo
+
+  .. code-block:: sql
+    :linenos:
+
+	declare @numero int
+	set @numero = 1
+	
+	declare @dia int
+	set @dia = (select day(getdate()))
+	
 
 Exercícios
 ----------
