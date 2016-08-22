@@ -68,7 +68,20 @@ EXERCÍCIOS
 	ORDER BY 2 DESC
 
 
-7. Mostra qual o menor valor devido, o maior e o total devido	da tabela devedor
+7. Mostre qual o menor valor devido, o maior e o total devido da tabela devedor
+
+  .. code-block:: sql
+    :linenos:
+
+	SELECT MIN(DevedorSaldo) AS MINIMO, MAX(DevedorSaldo) AS MAXIMO, SUM(DevedorSaldo) AS TOTAL 
+	FROM dbo.Devedores
 
 8. Mostre o nome do cliente, se ele tem cartão de crédito, apenas do cliente que é o maior devedor.
 
+SELECT TOP 1 --Experimente remover o TOP 1 para conferir o resultado
+	ClienteNome
+	,CASE WHEN dbo.CartaoCredito.ClienteCodigo IS NULL THEN 'NÃO TEM CARTÃO CRÉDITO' ELSE 'TEM CARTÃO CRÉDITO' END AS 'CARTAO'
+	,DevedorSaldo FROM dbo.Clientes 
+INNER JOIN dbo.Devedores ON Devedores.ClienteCodigo = Clientes.ClienteCodigo
+LEFT JOIN dbo.CartaoCredito ON CartaoCredito.ClienteCodigo = Clientes.ClienteCodigo
+ORDER BY 2 DESC
