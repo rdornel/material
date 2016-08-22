@@ -28,13 +28,47 @@ EXERCÍCIOS
 
 3. Mostre o nome da agência o saldo total, o mínimo, o máximo e a quantidade de clientes de cada agência.
 
+  .. code-block:: sql
+    :linenos:
+	
+	SELECT AgenciaNome, SUM(ContaSaldo) AS TOTAL ,MIN(ContaSaldo) AS MINIMO, MAX(ContaSaldo) AS MAXIMO, 
+	COUNT(Contas.ClienteCodigo) AS QTDE_CLIENTES
+	FROM Contas INNER JOIN dbo.Agencias ON Agencias.AgenciaCodigo = Contas.AgenciaCodigo
+	GROUP BY dbo.Agencias.AgenciaNome
+	--ATENCAO AQUI PARA COUNT(*) E COUNT(DISTINT)
+
+
 4. Mostre o percentual que cada agencia representa no saldo total do banco.
+
+  .. code-block:: sql
+    :linenos:
+
+	SELECT AgenciaNome, SUM(ContaSaldo) / (SELECT SUM(ContaSaldo) FROM dbo.Contas) * 100 AS PERCENTUAL
+	FROM Contas INNER JOIN dbo.Agencias ON Agencias.AgenciaCodigo = Contas.AgenciaCodigo
+	GROUP BY dbo.Agencias.AgenciaNome
 
 5. Mostre as duas cidades que tem o maior saldo total
 
+  .. code-block:: sql
+    :linenos:
+
+	SELECT TOP 2 AgenciaCidade, SUM(ContaSaldo) AS SALDO_TOTAL
+	FROM Contas INNER JOIN Agencias ON Agencias.AgenciaCodigo = Contas.AgenciaCodigo
+	GROUP BY AgenciaCidade
+	ORDER BY 2 DESC
+
 6. Mostre qual a agência tem o maior montante de emprestimo
+
+
+  .. code-block:: sql
+    :linenos:
+
+	SELECT TOP 1 AgenciaCidade, Emprestimos.EmprestimoTotal 
+	FROM dbo.Emprestimos INNER JOIN Agencias ON Agencias.AgenciaCodigo = Emprestimos.AgenciaCodigo
+	ORDER BY 2 DESC
+
 
 7. Mostra qual o menor valor devido, o maior e o total devido	da tabela devedor
 
-8. Mostre o nome do cliente, se ele tem cartão de crédito ou não 	apenas do cliente que é o maior devedor.
+8. Mostre o nome do cliente, se ele tem cartão de crédito, apenas do cliente que é o maior devedor.
 
