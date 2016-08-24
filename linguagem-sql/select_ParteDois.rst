@@ -5,9 +5,8 @@ SELECT - Nível 2
 
 No exemplo abaixo, o ``ClienteCodigo`` não poderá ser vazio em nenhuma das tabelas envolvidas, caso isso ocorra, aquela linha não será retornada no resultado.
 
-.. figure:: http://i.stack.imgur.com/1Tfy0.jpg
-   :scale: 30 %
-   :alt: map to buried treasure
+.. figure:: /img/joins.jpg
+  :alt: Tipos de Joins
 
 Fonte da imagem: `Representação Visual das Joins <http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins/>`_
 
