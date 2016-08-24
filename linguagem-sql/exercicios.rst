@@ -96,4 +96,6 @@ EXERCÍCIOS
 
 11. Insira um novo cliente chamado Silvio Santos, crie uma conta para ele com saldo de R$ 500,00 na agência Beira Mar. Cadastre um cartão de crédito com limite de 5000,00.
 
+12. Altere a rua do cliente Ana para Rua da Univille.
 
+13. Apague todos os registros do cliente Vania.
