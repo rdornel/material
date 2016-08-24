@@ -7,6 +7,6 @@ VIEW
 .. code-block:: sql
   :linenos:
 
-	CREATE VIEW ClientesIdade
-	AS
-	SELECT ClienteNome,DATEDIFF(YEAR,ClienteNascimento,GETDATE()) AS Idade	FROM dbo.Clientes;
+  CREATE VIEW ClientesIdade
+  AS
+  SELECT ClienteNome,DATEDIFF(YEAR,ClienteNascimento,GETDATE()) AS Idade	FROM dbo.Clientes;
