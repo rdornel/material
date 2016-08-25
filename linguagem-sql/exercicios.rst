@@ -84,7 +84,7 @@ EXERCÍCIOS
     ,DevedorSaldo FROM dbo.Clientes
     INNER JOIN dbo.Devedores ON Devedores.ClienteCodigo = Clientes.ClienteCodigo
     LEFT JOIN dbo.CartaoCredito ON CartaoCredito.ClienteCodigo = Clientes.ClienteCodigo
-    ORDER BY 2 DESC
+    ORDER BY 3 DESC
 
 9. Mostre o nome do cliente, a idade, o saldo total em conta, seu total de devedor, seu total emprestado e se tem cartão de crédito ou não. Os valores nulos devem aparecer como 0.00. A ordenação dever ser sempre pelo maioir devedor.
 
