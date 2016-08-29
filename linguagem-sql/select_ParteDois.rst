@@ -153,5 +153,20 @@ Muitas vezes necessitamos armazenar determinados valores para uso posterior. Um 
 	FROM Clientes
 
 	SELECT * FROM ClientesIdade
+	
+- CAST, CONVERT e concatenação
 
+Comandos utilizados para converter tipos de dados e concatenar Strings.
 
+  .. code-block:: sql
+    :linenos:
+	
+    SELECT Clientes.ClienteNome + Clientes.ClienteCidade FROM Clientes;
+
+    SELECT Clientes.ClienteNome + ' ' + Clientes.ClienteCidade FROM Clientes;
+
+    SELECT Clientes.ClienteNome + ' de ' + Clientes.ClienteCidade FROM Clientes;
+
+    SELECT Clientes.ClienteNome + ' - R$ ' + CAST (Contas.ContaSaldo AS VARCHAR(10) )FROM Clientes INNER JOIN Contas ON Contas.ClienteCodigo = Clientes.ClienteCodigo;
+    
+    SELECT Clientes.ClienteNome + ' - R$ ' + CONVERT  (VARCHAR(10), Contas.ContaSaldo )FROM Clientes INNER JOIN Contas ON Contas.ClienteCodigo = Clientes.ClienteCodigo;
