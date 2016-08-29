@@ -95,3 +95,9 @@ EXERCÍCIOS
 12. Altere a rua do cliente Ana para Rua da Univille.
 
 13. Apague todos os registros do cliente Vania.
+
+14. Mostre nome e sobrenome e se o cliente for homem, mostre Sr e se for mulher Sra na frente do nome.Use o MinhaCaixa_Beta para resolver essa questão.
+
+15. Mostre os bairros que tem mais clientes.
+
+16. Mostre a renda de cada cliente convertida em dólar.
