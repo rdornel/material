@@ -6,7 +6,7 @@ SELECT - Nível 2
 No exemplo abaixo, o ``ClienteCodigo`` não poderá ser vazio em nenhuma das tabelas envolvidas, caso isso ocorra, aquela linha não será retornada no resultado.
 
 .. figure:: http://i.stack.imgur.com/1Tfy0.jpg
-   :scale: 30 %
+   :scale: 30%
    :alt: map to buried treasure
 
 Fonte da imagem: `Representação Visual das Joins <http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins/>`_
@@ -128,24 +128,24 @@ O comando EXISTS é pareceido com o comando IN, quando queremos comparar mais de
     SELECT * FROM  Contas
       WHERE YEAR(ContaAbertura) = '2011'
       ORDER BY ContaAbertura;
-	  
+  
 - Variáveis
 
 Muitas vezes necessitamos armazenar determinados valores para uso posterior. Um exemplo é gardar um valor total em uma variável para que ele seja usado em cálculo de percentual por exemplo
 
-  .. code-block:: sql
-    :linenos:
+.. code-block:: sql
+  :linenos:
 
-	declare @numero int
-	set @numero = 1
-	
-	declare @dia int
-	set @dia = (select day(getdate()))
+  declare @numero int
+  set @numero = 1
 
-- SELECT INTO	
+  declare @dia int
+  set @dia = (select day(getdate()))
 
-  .. code-block:: sql
-    :linenos:
+- SELECT INTO
+
+.. code-block:: sql
+  :linenos:
 
 	SELECT Clientes.ClienteNome, 
 	DATEDIFF(YEAR,Clientes.ClienteNascimento,GETDATE()) AS IDADE

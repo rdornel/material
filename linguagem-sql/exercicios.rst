@@ -101,3 +101,6 @@ EXERCÍCIOS
 15. Mostre os bairros que tem mais clientes.
 
 16. Mostre a renda de cada cliente convertida em dólar.
+
+17. Mostre o nome do cliente, o número da conta, o saldo da conta, apenas para os 15 melhores clientes
+
