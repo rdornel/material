@@ -16,3 +16,4 @@ http://www.w3schools.com/sql/
   delete.rst
   exercicios.rst
   view.rst
+  procedures.rst
