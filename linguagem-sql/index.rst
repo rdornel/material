@@ -17,3 +17,4 @@ http://www.w3schools.com/sql/
   exercicios.rst
   view.rst
   procedures.rst
+  funcoes.rst
