@@ -10,7 +10,7 @@ FUNÇÕES
   RETURNS int
   AS
     BEGIN
-    DECLARE @ano AS int
+    DECLARE @ano int
     SELECT @ano = YEAR(@data)
     
 	RETURN @ano
