@@ -123,16 +123,16 @@ EXERCÍCIOS
     :linenos:
 
    INSERT Clientes (ClienteNome, ClienteRua, ClienteCidade, ClienteNascimento)
-   VALUES  ('Silvio Santos', 'Rua João Colin, 1234', 'Joinville','1980-01-01' )
+   VALUES  ('Silvio Santos', 'Rua João Colin, 1234', 'Joinville','1980-01-01' );
 
    SELECT @@IDENTITY --RETORNA O CÓDIGO DO CLIENTE GERADO PELO AUTO INCREMENTO --> IDENTITY
 
    INSERT Contas (AgenciaCodigo ,ContaNumero , ClienteCodigo , ContaSaldo , ContaAbertura) 
    OUTPUT INSERTED.* --RETORNA OS REGISTROS INSERIDOS NA TABELA
-   VALUES (5,'C-999',14,500,'2016-01-01')
+   VALUES (5,'C-999',14,500,'2016-01-01');
 
    INSERT CartaoCredito ( AgenciaCodigo , ClienteCodigo , CartaoCodigo , CartaoLimite)
-   VALUES  (5,14,'1234-1234-1234-1234',5000)
+   VALUES  (5,14,'1234-1234-1234-1234',5000);
 
 12. Altere a rua do cliente Ana para Rua da Univille.
 
