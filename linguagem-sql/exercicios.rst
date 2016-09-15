@@ -127,7 +127,7 @@ Cadastre um cartão de crédito com limite de 5000,00.
 
     INSERT Clientes (ClienteNome, ClienteRua, ClienteCidade, ClienteNascimento) VALUES  ('Silvio Santos', 'Rua João Colin, 1234', 'Joinville','1980-01-01' );
 	
-	SELECT @@IDENTITY --RETORNA O CÓDIGO DO CLIENTE GERADO PELO AUTO INCREMENTO --> IDENTITY
+    SELECT @@IDENTITY --RETORNA O CÓDIGO DO CLIENTE GERADO PELO AUTO INCREMENTO --> IDENTITY
 
     INSERT Contas (AgenciaCodigo ,ContaNumero , ClienteCodigo , ContaSaldo , ContaAbertura) 
     OUTPUT INSERTED.* --RETORNA OS REGISTROS INSERIDOS NA TABELA
