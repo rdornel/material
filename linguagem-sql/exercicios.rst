@@ -117,22 +117,14 @@ EXERCÍCIOS
     LEFT JOIN CartaoCredito ON CartaoCredito.ClienteCodigo = Clientes.ClienteCodigo
     ORDER BY 3 DESC
 	
-11. Insira um novo cliente chamado Silvio Santos, crie uma conta para ele com saldo de R$ 500,00 na agência Beira Mar. Cadastre um cartão de crédito com limite de 5000,00.
+11. Insira um novo cliente chamado Silvio Santos, crie uma conta para ele com saldo de R$ 500,00 na agência Beira Mar. 
+Cadastre um cartão de crédito com limite de 5000,00.
 
   .. code-block:: sql
     :linenos:
 
-   INSERT Clientes (ClienteNome, ClienteRua, ClienteCidade, ClienteNascimento)
-   VALUES  ('Silvio Santos', 'Rua João Colin, 1234', 'Joinville','1980-01-01' );
+   INSERT Clientes (ClienteNome, ClienteRua, ClienteCidade, ClienteNascimento) VALUES  ('Silvio Santos', 'Rua João Colin, 1234', 'Joinville','1980-01-01' );
 
-   SELECT @@IDENTITY --RETORNA O CÓDIGO DO CLIENTE GERADO PELO AUTO INCREMENTO --> IDENTITY
-
-   INSERT Contas (AgenciaCodigo ,ContaNumero , ClienteCodigo , ContaSaldo , ContaAbertura) 
-   OUTPUT INSERTED.* --RETORNA OS REGISTROS INSERIDOS NA TABELA
-   VALUES (5,'C-999',14,500,'2016-01-01');
-
-   INSERT CartaoCredito ( AgenciaCodigo , ClienteCodigo , CartaoCodigo , CartaoLimite)
-   VALUES  (5,14,'1234-1234-1234-1234',5000);
 
 12. Altere a rua do cliente Ana para Rua da Univille.
 
