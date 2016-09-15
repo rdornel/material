@@ -34,7 +34,7 @@ EXERCÍCIOS
     SELECT AgenciaNome, SUM(ContaSaldo) AS TOTAL ,MIN(ContaSaldo) AS MINIMO, MAX(ContaSaldo) AS MAXIMO,
     COUNT(Contas.ClienteCodigo) AS QTDE_CLIENTES
     FROM Contas INNER JOIN dbo.Agencias ON Agencias.AgenciaCodigo = Contas.AgenciaCodigo
-    GROUP BY dbo.Agencias.AgenciaNome
+    GROUP BY dbo.Agencias.AgenciaNome;
     --ATENCAO AQUI PARA COUNT(*) E COUNT(DISTINT)
 
 4. Mostre o percentual que cada agencia representa no saldo total do banco.
@@ -44,7 +44,7 @@ EXERCÍCIOS
 
     SELECT AgenciaNome, SUM(ContaSaldo) / (SELECT SUM(ContaSaldo) FROM dbo.Contas) * 100 AS PERCENTUAL
     FROM Contas INNER JOIN dbo.Agencias ON Agencias.AgenciaCodigo = Contas.AgenciaCodigo
-    GROUP BY dbo.Agencias.AgenciaNome
+    GROUP BY dbo.Agencias.AgenciaNome;
 
 5. Mostre as duas cidades que tem o maior saldo total
 
@@ -54,7 +54,7 @@ EXERCÍCIOS
     SELECT TOP 2 AgenciaCidade, SUM(ContaSaldo) AS SALDO_TOTAL
     FROM Contas INNER JOIN Agencias ON Agencias.AgenciaCodigo = Contas.AgenciaCodigo
     GROUP BY AgenciaCidade
-    ORDER BY 2 DESC
+    ORDER BY 2 DESC;
 
 6. Mostre qual a agência tem o maior montante de emprestimo
 
@@ -63,7 +63,7 @@ EXERCÍCIOS
 
     SELECT TOP 1 AgenciaCidade, Emprestimos.EmprestimoTotal
     FROM dbo.Emprestimos INNER JOIN Agencias ON Agencias.AgenciaCodigo = Emprestimos.AgenciaCodigo
-    ORDER BY 2 DESC
+    ORDER BY 2 DESC;
 
 7. Mostre qual o menor valor devido, o maior e o total devido da tabela devedor
 
@@ -71,7 +71,7 @@ EXERCÍCIOS
     :linenos:
 
     SELECT MIN(DevedorSaldo) AS MINIMO, MAX(DevedorSaldo) AS MAXIMO, SUM(DevedorSaldo) AS TOTAL
-    FROM dbo.Devedores
+    FROM dbo.Devedores;
 
 8. Mostre o nome do cliente, se ele tem cartão de crédito, apenas do cliente que é o maior devedor.
 
@@ -84,7 +84,7 @@ EXERCÍCIOS
     ,DevedorSaldo FROM dbo.Clientes
     INNER JOIN dbo.Devedores ON Devedores.ClienteCodigo = Clientes.ClienteCodigo
     LEFT JOIN dbo.CartaoCredito ON CartaoCredito.ClienteCodigo = Clientes.ClienteCodigo
-    ORDER BY 3 DESC
+    ORDER BY 3 DESC;
 
 9. Mostre o nome do cliente, a idade, o saldo total em conta, seu total devido, seu total emprestado e se tem cartão de crédito ou não. Os valores nulos devem aparecer como 0.00. A ordenação dever ser sempre pelo maioir devedor.
 
@@ -106,16 +106,16 @@ EXERCÍCIOS
   .. code-block:: sql
     :linenos:
     
-	SELECT Clientes.ClienteNome, DATEDIFF(YEAR,Clientes.ClienteNascimento, GETDATE()) AS IDADE,
-    ISNULL(Devedores.DevedorSaldo,0) AS DevedorSaldo, ISNULL(Emprestimos.EmprestimoTotal,0) AS EmprestimoTotal, 
-    CASE WHEN .CartaoCredito.CartaoCodigo IS NULL THEN 'NÃO TEM' ELSE 'TEM' END AS CARTAOCREDITO,
-    CASE WHEN ClienteNome LIKE '%a' THEN 'FEMININO' ELSE 'MASCULINO' END AS SEXO,
-    ISNULL((Emprestimos.EmprestimoTotal-DevedorSaldo),0) AS DIFERENÇA
-    FROM Clientes 
-    LEFT JOIN Devedores ON Devedores.ClienteCodigo = Clientes.ClienteCodigo
-    LEFT JOIN Emprestimos ON Emprestimos.ClienteCodigo = Clientes.ClienteCodigo
-    LEFT JOIN CartaoCredito ON CartaoCredito.ClienteCodigo = Clientes.ClienteCodigo
-    ORDER BY 3 DESC
+  SELECT Clientes.ClienteNome, DATEDIFF(YEAR,Clientes.ClienteNascimento, GETDATE()) AS IDADE,
+  ISNULL(Devedores.DevedorSaldo,0) AS DevedorSaldo, ISNULL(Emprestimos.EmprestimoTotal,0) AS EmprestimoTotal, 
+  CASE WHEN .CartaoCredito.CartaoCodigo IS NULL THEN 'NÃO TEM' ELSE 'TEM' END AS CARTAOCREDITO,
+  CASE WHEN ClienteNome LIKE '%a' THEN 'FEMININO' ELSE 'MASCULINO' END AS SEXO,
+  ISNULL((Emprestimos.EmprestimoTotal-DevedorSaldo),0) AS DIFERENÇA
+  FROM Clientes 
+  LEFT JOIN Devedores ON Devedores.ClienteCodigo = Clientes.ClienteCodigo
+  LEFT JOIN Emprestimos ON Emprestimos.ClienteCodigo = Clientes.ClienteCodigo
+  LEFT JOIN CartaoCredito ON CartaoCredito.ClienteCodigo = Clientes.ClienteCodigo
+  ORDER BY 3 DESC;
 	
 11. Insira um novo cliente chamado Silvio Santos, crie uma conta para ele com saldo de R$ 500,00 na agência Beira Mar. 
 Cadastre um cartão de crédito com limite de 5000,00.
@@ -123,8 +123,7 @@ Cadastre um cartão de crédito com limite de 5000,00.
   .. code-block:: sql
     :linenos:
 
-   INSERT Clientes (ClienteNome, ClienteRua, ClienteCidade, ClienteNascimento) VALUES  ('Silvio Santos', 'Rua João Colin, 1234', 'Joinville','1980-01-01' );
-
+  INSERT Clientes (ClienteNome, ClienteRua, ClienteCidade, ClienteNascimento) VALUES  ('Silvio Santos', 'Rua João Colin, 1234', 'Joinville','1980-01-01' );
 
 12. Altere a rua do cliente Ana para Rua da Univille.
 
