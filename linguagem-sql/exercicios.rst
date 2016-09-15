@@ -106,31 +106,35 @@ EXERCÍCIOS
   .. code-block:: sql
     :linenos:
     
-  SELECT Clientes.ClienteNome, DATEDIFF(YEAR,Clientes.ClienteNascimento, GETDATE()) AS IDADE,
-  ISNULL(Devedores.DevedorSaldo,0) AS DevedorSaldo, ISNULL(Emprestimos.EmprestimoTotal,0) AS EmprestimoTotal, 
-  CASE WHEN .CartaoCredito.CartaoCodigo IS NULL THEN 'NÃO TEM' ELSE 'TEM' END AS CARTAOCREDITO,
-  CASE WHEN ClienteNome LIKE '%a' THEN 'FEMININO' ELSE 'MASCULINO' END AS SEXO,
-  ISNULL((Emprestimos.EmprestimoTotal-DevedorSaldo),0) AS DIFERENÇA
-  FROM Clientes 
-  LEFT JOIN Devedores ON Devedores.ClienteCodigo = Clientes.ClienteCodigo
-  LEFT JOIN Emprestimos ON Emprestimos.ClienteCodigo = Clientes.ClienteCodigo
-  LEFT JOIN CartaoCredito ON CartaoCredito.ClienteCodigo = Clientes.ClienteCodigo
-  ORDER BY 3 DESC;
-	
+    SELECT Clientes.ClienteNome, DATEDIFF(YEAR,Clientes.ClienteNascimento, GETDATE()) AS IDADE,
+    ISNULL(Devedores.DevedorSaldo,0) AS DevedorSaldo, ISNULL(Emprestimos.EmprestimoTotal,0) AS EmprestimoTotal, 
+    CASE WHEN .CartaoCredito.CartaoCodigo IS NULL THEN 'NÃO TEM' ELSE 'TEM' END AS CARTAOCREDITO,
+    CASE WHEN ClienteNome LIKE '%a' THEN 'FEMININO' ELSE 'MASCULINO' END AS SEXO,
+    ISNULL((Emprestimos.EmprestimoTotal-DevedorSaldo),0) AS DIFERENÇA
+    FROM Clientes 
+    LEFT JOIN Devedores ON Devedores.ClienteCodigo = Clientes.ClienteCodigo
+    LEFT JOIN Emprestimos ON Emprestimos.ClienteCodigo = Clientes.ClienteCodigo
+    LEFT JOIN CartaoCredito ON CartaoCredito.ClienteCodigo = Clientes.ClienteCodigo
+    ORDER BY 3 DESC;
+  
+
+
 11. Insira um novo cliente chamado Silvio Santos, crie uma conta para ele com saldo de R$ 500,00 na agência Beira Mar. 
 Cadastre um cartão de crédito com limite de 5000,00.
 
-  .. code-block:: sql
-    :linenos:
+.. code-block:: sql
+  :linenos:
 
   INSERT Clientes (ClienteNome, ClienteRua, ClienteCidade, ClienteNascimento) VALUES  ('Silvio Santos', 'Rua João Colin, 1234', 'Joinville','1980-01-01' );
-
+  
+  
 12. Altere a rua do cliente Ana para Rua da Univille.
 
   .. code-block:: sql
     :linenos:
 	
-    UPDATE dbo.Clientes SET ClienteRua = 'Rua da Univille' WHERE ClienteNome = 'Ana'
+    UPDATE dbo.Clientes SET ClienteRua = 'Rua da Univille' WHERE ClienteNome = 'Ana';
+	
 
 13. Apague todos os registros do cliente Vania.
 
