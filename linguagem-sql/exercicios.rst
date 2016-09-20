@@ -225,4 +225,9 @@ Cadastre um cartão de crédito com limite de 5000,00.
     GROUP BY DAY(Movimentos.MovimentoData)
     ORDER BY 2 DESC
 
+19. Crie uma função que receba o código do estado civil e mostre ele por extenso
+
+20. Crie uma função que receba o código do sexo e mostre ele por extenso
+
+21. Crie um procedure que receba o número da conta e cadastre um cartão de crédito com limite de R$ 500 para o cliente caso ele não tenha.
 	

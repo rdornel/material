@@ -21,7 +21,9 @@ PROCEDURES
 
   exec uspRetornaSaldo 'Ana';
 
-- IF
+IF
+--
+
 Comando utilizado para checar condições.
 
 .. code-block:: sql
@@ -47,7 +49,9 @@ Comando utilizado para checar condições.
   END
 
 
-- WHILE
+WHILE
+-----
+
 Comando utilizado para realizar laços de repetição.  
 
 .. code-block:: sql
