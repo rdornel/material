@@ -11,7 +11,7 @@ FUNÇÕES
   AS
     BEGIN
     DECLARE @ano int
-    SELECT @ano = YEAR(@data)
+    SET @ano = YEAR(@data)
     
 	RETURN @ano
   
