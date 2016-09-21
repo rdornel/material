@@ -252,8 +252,8 @@ Cadastre um cartão de crédito com limite de 5000,00.
 
 23. Crie uma função que receba a matricula do aluno e mostre se ele está aprovado, exame ou reprovado. Para pegar exame o aluno tem que ter no mínimo 3 de média anual. 
 
-24. Use o script abaixo para criar uma procedure que receba a matricula, disciplina, ano, bimestre, aulas dadas, notas, faltas e calcule o total de pontos, total de faltas e a média do aluno.
-Cso seja o quarto bimestre calcule o resultado final, A, E ou R.
+24. Use o script abaixo para criar uma procedure que receba a matricula, disciplina, ano, bimestre, aulas dadas, notas e faltas.
+Caso seja o quarto bimestre, calcule o total de pontos, total de faltas e a média do aluno e calcule o resultado final, A, E ou R.
   
   .. code-block:: sql
     :linenos:
