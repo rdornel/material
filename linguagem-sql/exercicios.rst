@@ -231,7 +231,7 @@ Cadastre um cartão de crédito com limite de 5000,00.
 
 21. Crie um procedure que receba o número da conta e cadastre um cartão de crédito com limite de R$ 500 para o cliente caso ele não tenha (MinhaCaixa).
 	
-22. Use o Script abaixo para criar uma procedure que receba a matricula, disciplina, ano e calcule o total de pontos e a média do aluno
+22. Use o script abaixo para criar uma procedure que receba a matricula, disciplina, ano e calcule o total de pontos e a média do aluno
 
   .. code-block:: sql
     :linenos:
@@ -251,3 +251,36 @@ Cadastre um cartão de crédito com limite de 5000,00.
     INSERT Notas (Matricula, Materia, Ano, Nota1, Nota2, Nota3, Nota4) VALUES  (1,'BDA',2016,7,7,7,7);
 
 23. Crie uma função que receba a matricula do aluno e mostre se ele está aprovado, exame ou reprovado. Para pegar exame o aluno tem que ter no mínimo 3 de média anual. 
+
+24. Use o script abaixo para criar uma procedure que receba a matricula, disciplina, ano, bimestre, aulas dadas, notas, faltas e calcule o total de pontos, total de faltas e a média do aluno.
+Cso seja o quarto bimestre calcule o resultado final, A, E ou R.
+  
+  .. code-block:: sql
+    :linenos:
+
+    CREATE TABLE Notas
+    (
+    Matricula INT,
+    Materia CHAR (3),
+    Ano INT,
+	Aulas1 INT,
+	Aulas2 INT,
+	Aulas3 INT,
+	Aulas4 INT,
+    Nota1 FLOAT,
+    Nota2 FLOAT,
+    Nota3 FLOAT,
+    Nota4 FLOAT,
+	Falta1 INT,
+	Falta2 INT,
+	Falta3 INT,
+	Falta4 INT,
+    TotalPontos FLOAT,
+	TotalFaltas INT,
+	TotalAulas INT,
+    MediaFinal FLOAT,
+	Resultado char(1)
+    );
+    
+	INSERT Notas (Matricula, Materia, Ano) VALUES  (1,'BDA',2016);
+	
