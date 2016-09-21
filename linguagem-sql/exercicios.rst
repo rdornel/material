@@ -249,4 +249,5 @@ Cadastre um cartão de crédito com limite de 5000,00.
     MediaFinal FLOAT
     );
     INSERT Notas (Matricula, Materia, Ano, Nota1, Nota2, Nota3, Nota4) VALUES  (1,'BDA',2016,7,7,7,7);
-  
+
+23. Crie uma função que receba a matricula do aluno e mostre se ele está aprovado, exame ou reprovado. Para pegar exame o aluno tem que ter no mínimo 3 de média anual. 
