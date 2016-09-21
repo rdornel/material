@@ -231,3 +231,22 @@ Cadastre um cartão de crédito com limite de 5000,00.
 
 21. Crie um procedure que receba o número da conta e cadastre um cartão de crédito com limite de R$ 500 para o cliente caso ele não tenha.
 	
+22. Use o Script abaixo para criar uma procedure que receba a matricula e calcule o total de pontos e a média do aluno
+
+  .. code-block:: sql
+    :linenos:
+
+  CREATE TABLE Notas
+  (
+  Matricula INT,
+  Materia CHAR (3),
+  Ano INT,
+  Nota1 FLOAT,
+  Nota2 FLOAT,
+  Nota3 FLOAT,
+  Nota4 FLOAT,
+  TotalPontos FLOAT,
+  MediaFinal FLOAT
+  );
+  INSERT Notas (Matricula, Materia, Ano, Nota1, Nota2, Nota3, Nota4) VALUES  (1,'BDA',2016,7,7,7,7);
+  
