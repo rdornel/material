@@ -18,3 +18,4 @@ http://www.w3schools.com/sql/
   view.rst
   procedures.rst
   funcoes.rst
+  transacoes.rst
