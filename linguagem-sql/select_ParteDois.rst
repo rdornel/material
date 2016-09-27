@@ -5,7 +5,7 @@ SELECT - Nível 2
 
 No exemplo abaixo, o ``ClienteCodigo`` não poderá ser vazio em nenhuma das tabelas envolvidas, caso isso ocorra, aquela linha não será retornada no resultado.
 
-.. figure:: linguagem-sql/joins.jpg
+.. figure:: linguagem-sql\joins.jpg
    :scale: 30%
    :alt: map to buried treasure
 
