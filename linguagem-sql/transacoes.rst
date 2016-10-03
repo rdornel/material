@@ -11,8 +11,33 @@ Sempre que for trabalhar com o comando ``UPDATE`` ou ``DELETE``, procure executa
 .. code-block:: sql
   :linenos:
 
-UPDATE CartaoCredito SET CartaoLimite = 1000 WHERE ClienteCodigo = 1;
+  BEGIN TRAN --> Inicia a transação
 
+  UPDATE dbo.CartaoCredito SET CartaoLimite = CartaoLimite * 1.1 
+
+  COMMIT --> Finaliza a transação
+
+--OR
+
+  ROLLBACK --> desfaz a transação
+
+Execute primeiro sem o WHERE e verifique que nenhuma linha será alterada. Depois remova o comentário e verá que apenas uma linha foi alterada.
+
+  .. code-block:: sql
+  :linenos:
+  
+  BEGIN TRAN
+
+  UPDATE dbo.CartaoCredito SET CartaoLimite = CartaoLimite * 1.1 
+  --WHERE ClienteCodigo = '12'
+
+  IF (@@ROWCOUNT > 1 OR @@ERROR > 0)
+
+    ROLLBACK
+
+  ELSE 
+
+    COMMIT
 
 
 Try Catch
@@ -21,4 +46,14 @@ Try Catch
 .. code-block:: sql
   :linenos:
 
-  UPDATE CartaoCredito SET CartaoLimite = 1000 WHERE ClienteCodigo = 1;
+  BEGIN TRY
+  
+    SELECT 1/0
+
+  END TRY
+  
+  BEGIN CATCH
+    SELECT 
+        ERROR_NUMBER() AS ErrorNumber,
+        ERROR_MESSAGE() AS ErrorMessage;
+  END CATCH;
