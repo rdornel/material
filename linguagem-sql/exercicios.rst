@@ -250,9 +250,11 @@ Cadastre um cartão de crédito com limite de 5000,00.
     );
     INSERT Notas (Matricula, Materia, Ano, Nota1, Nota2, Nota3, Nota4) VALUES  (1,'BDA',2016,7,7,7,7);
 
-23. Use o script abaixo para criar duas procedures,
-Uma procedure para matricular os alunos em pelo menos duas matérias, exemplo: exec procedure @matricula, @materia, @ano
-Matricular 6 Alunos
+23. Use o script abaixo para criar duas procedures:
+
+Uma procedure para cadastrar os alunos em duas matérias (BDA e PRG). Exemplo: exec procedure @matricula, @materia, @ano
+
+(matricular 6 alunos)
 
 Uma procedure que receba a matricula, disciplina, ano, bimestre, aulas dadas, notas e faltas.
 Quando a condição dentro da procedure identificar que é o quarto bimestre calcule o total de pontos, total de faltas, percentual de frequencia,a  média do aluno e calcule o resultado final, A, E ou R.
