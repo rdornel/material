@@ -17,9 +17,9 @@ Sempre que for trabalhar com o comando ``UPDATE`` ou ``DELETE``, procure executa
 
   COMMIT --> Finaliza a transação
 
---OR
+  --OR
 
-  ROLLBACK --> desfaz a transação
+  ROLLBACK --> Desfaz a transação
 
 Execute primeiro sem o WHERE e verifique que nenhuma linha será alterada. Depois remova o comentário e verá que apenas uma linha foi alterada.
 
