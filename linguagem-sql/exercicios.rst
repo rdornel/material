@@ -250,16 +250,13 @@ Cadastre um cartão de crédito com limite de 5000,00.
     );
     INSERT Notas (Matricula, Materia, Ano, Nota1, Nota2, Nota3, Nota4) VALUES  (1,'BDA',2016,7,7,7,7);
 
-23. Crie uma função que receba a matricula do aluno e mostre se ele está aprovado, exame ou reprovado  e o percentual de frequencia do aluno. 
-Para pegar exame o aluno tem que ter no mínimo 3 de média anual. Recebendo como parâmetro @matricula, @materia, @ano
-
-24. Use o script abaixo para criar uma procedure que receba a matricula, disciplina, ano, bimestre, aulas dadas, notas e faltas.
-Caso seja o quarto bimestre, calcule o total de pontos, total de faltas e a média do aluno e calcule o resultado final, A, E ou R.
+23. Use o script abaixo para criar duas procedures,
 Uma procedure para matricular os alunos em pelo menos duas matérias, exemplo: exec procedure @matricula, @materia, @ano
 Matricular 6 Alunos
 
-Uma procedure que cadastre o número de aulas, notas e faltas do aluno. Exempo: exec Procedure @matricula, @materia, @ano, @aulas, @nota, @falta e faça os calculos necessários para aprovar, reprovar ou colocar em exame o aluno.
-  
+Uma procedure que receba a matricula, disciplina, ano, bimestre, aulas dadas, notas e faltas.
+Quando a condição dentro da procedure identificar que é o quarto bimestre calcule o total de pontos, total de faltas, percentual de frequencia,a  média do aluno e calcule o resultado final, A, E ou R.
+ 
   .. code-block:: sql
     :linenos:
 
@@ -284,6 +281,7 @@ Uma procedure que cadastre o número de aulas, notas e faltas do aluno. Exempo: 
 	TotalFaltas INT,
 	TotalAulas INT,
     MediaFinal FLOAT,
+	PercentualFrequencia float,
 	Resultado char(1)
     );
     
