@@ -258,6 +258,8 @@ Uma procedure para cadastrar os alunos em duas matérias (BDA e PRG). Exemplo: e
 
 Uma procedure que receba a matricula, disciplina, ano, bimestre, aulas dadas, notas e faltas.
 Quando a condição dentro da procedure identificar que é o quarto bimestre calcule o total de pontos, total de faltas, percentual de frequencia,a  média do aluno e calcule o resultado final, A, E ou R.
+
+Exemplo: exec procedure @matricula, @materia, @ano, 1, 32, 7, 0
  
   .. code-block:: sql
     :linenos:

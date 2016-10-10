@@ -19,3 +19,4 @@ http://www.w3schools.com/sql/
   procedures.rst
   funcoes.rst
   transacoes.rst
+  triggers.rst
