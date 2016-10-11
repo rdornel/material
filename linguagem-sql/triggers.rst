@@ -33,11 +33,11 @@ Trigger para DELETE
   INSERT dbo.clientes_audit SELECT *,[TRG_OPERACAO] = 'DELETE',[TRG_DATA]=GETDATE(),[TRG_FLAG]='OLD' FROM Deleted
   END;
 
-.. code-block:: sql
-  :linenos:
-
 Trigger para UPDATE
 -------------------
+
+.. code-block:: sql
+  :linenos:
 
   CREATE TRIGGER trgUPDATE_CLIENTE
   ON dbo.Clientes
@@ -46,4 +46,5 @@ Trigger para UPDATE
   BEGIN
   INSERT dbo.clientes_audit SELECT *,[TRG_OPERACAO] = 'UPDATE',[TRG_DATA]=GETDATE(),[TRG_FLAG]='OLD' FROM Deleted
   INSERT dbo.clientes_audit SELECT *,[TRG_OPERACAO] = 'UPDATE',[TRG_DATA]=GETDATE(),[TRG_FLAG]='NEW' FROM Inserted
-  END
+  END;
+  
