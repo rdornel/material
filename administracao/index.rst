@@ -7,5 +7,5 @@ Objeito de aprender tarefas básicas do dia a dia de um administrador de banco d
   :maxdepth: 3
 
   acesso.rst
-  manutenção.rst
+  manutencao.rst
   
