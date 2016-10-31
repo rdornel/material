@@ -14,10 +14,10 @@ http://www.w3schools.com/sql/
   select_ParteDois.rst
   update.rst
   delete.rst
-  exercicios.rst
   view.rst
   procedures.rst
   funcoes.rst
   transacoes.rst
   triggers.rst
   indices.rst
+  exercicios.rst
