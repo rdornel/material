@@ -3,12 +3,16 @@ INDICES
 
 - Criação de índices e estatísitcas
 
+SELECT dbo.Clientes.ClienteNome, dbo.Clientes.ClienteNascimento
+FROM dbo.Clientes
+WHERE ClienteNascimento >= '1980-01-01'
+
+
 .. code-block:: sql
   :linenos:
 
-CREATE NONCLUSTERED INDEX [IX_NOME] ON [dbo].[Clientes]
+CREATE INDEX [IX_NOME] ON [Clientes]
 (
 	[ClienteNascimento],
 	[ClienteNome] 
 )
-GO
