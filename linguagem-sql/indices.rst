@@ -13,8 +13,8 @@ WHERE ClienteNascimento >= '1980-01-01'
 .. code-block:: sql
   :linenos:
 
-CREATE INDEX [IX_NOME] ON [Clientes]
+CREATE INDEX IX_NOME ON Clientes
 (
-	[ClienteNascimento],
-	[ClienteNome] 
+	ClienteNascimento,
+	ClienteNome 
 )
