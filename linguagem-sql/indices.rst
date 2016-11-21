@@ -22,10 +22,16 @@ A consulta abaixo busca nome e data de nascimentos do cliente com base em uma da
 Como primeiro passo vamos olhar a cláusula WHERE e em seguida a cláusula SELECT.
 Dessa forma temos um índice que deverá conter ClienteNascimento e ClienteNome onde ClienteNascimento é o predicado.
 
-SELECT dbo.Clientes.ClienteNome, dbo.Clientes.ClienteNascimento
-FROM dbo.Clientes
-WHERE ClienteNascimento >= '1980-01-01'
+Comando
 
+.. code-block:: sql
+  :linenos:
+
+	SELECT dbo.Clientes.ClienteNome, dbo.Clientes.ClienteNascimento
+	FROM dbo.Clientes
+	WHERE ClienteNascimento >= '1980-01-01'
+
+Índice
 
 .. code-block:: sql
   :linenos:
