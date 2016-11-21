@@ -27,8 +27,8 @@ Comando
 .. code-block:: sql
   :linenos:
 
-	SELECT dbo.Clientes.ClienteNome, dbo.Clientes.ClienteNascimento
-	FROM dbo.Clientes
+	SELECT Clientes.ClienteNome, Clientes.ClienteNascimento
+	FROM Clientes
 	WHERE ClienteNascimento >= '1980-01-01'
 
 Índice
