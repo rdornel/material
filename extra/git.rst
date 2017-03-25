@@ -16,6 +16,7 @@ Tutoriais
 
 - `git - guia prático - sem complicação! <https://rogerdudler.github.io/git-guide/index.pt_BR.html>`_
 - `Try Git <https://try.github.io/>`_
+- `Learn Git Version Control using Interactive Browser-Based Labs <https://katacoda.com/courses/git>`_
 
 
 Vídeos
