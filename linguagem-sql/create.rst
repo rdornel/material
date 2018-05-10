@@ -64,6 +64,14 @@ Repare que sempre damos um nome para a ``CONSTRAINT``, isso é uma boa prática,
     CONSTRAINT FK_CLIENTES_CONTAS FOREIGN KEY (ClienteCodigo) REFERENCES Clientes(ClienteCodigo)
     );
 
+	
+ALTER TABLE ADD COLUMN
+----------------------
+
+.. code-block:: sql
+  :linenos:
+  
+  ALTER TABLE Pessoas ADD PessoaSexo CHAR(2);
 
 ALTER TABLE ADD CONSTRAINT
 --------------------------
