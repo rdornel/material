@@ -1,4 +1,4 @@
-EXERCÍCIOS NÍVEL 2
+EXERCÍCIOS Parte 2
 ==================
 
 1. Mostre quais os clientes tem idade superior a média.
