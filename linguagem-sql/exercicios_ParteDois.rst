@@ -12,3 +12,11 @@ EXERCÍCIOS Parte 2
       AND Contas.ContaNumero=Movimentos.ContaNumero 
       ORDER BY MovimentoData desc);
 
+2. Mostre o nome do cliente, sobrenome e a sua renda convertida em dolar e euro.
+
+  .. code-block:: sql
+    :linenos:
+
+    SELECT ClienteNome, ClienteSobrenome, 
+       (ClienteRendaAnual / 3.9) AS Dolar, (ClienteRendaAnual / 4.4) AS Euro 
+	   FROM Clientes;
