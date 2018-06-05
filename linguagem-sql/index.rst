@@ -10,10 +10,11 @@ http://www.w3schools.com/sql/
 
   create.rst
   insert.rst
-  select_ParteUm.rst
   exercicios_ParteUm.rst
-  select_ParteDois.rst
+  select_ParteUm.rst
   exercicios_ParteDois.rst
+  select_ParteDois.rst
+  exercicios_ParteTres.rst
   update.rst
   delete.rst
   view.rst
