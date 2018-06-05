@@ -6,7 +6,17 @@ EXERCÍCIOS Parte 1
   .. code-block:: sql
     :linenos:
 
-    CREATE TABLE Feriados;
+    CREATE TABLE FERIADOS 
+     (
+     CODFERIADO INT IDENTITY (1,1), 
+     NOMEFERIADO VARCHAR(100),
+     DATAFERIADO DATE
+	 );
+
+    INSERT FERIADOS (NOMEFERIADO, DATAFERIADO) 
+	         VALUES ('INDEPENDENCIA','2018-09-07');
+
+    SELECT * FROM FERIADOS;
 
 
     
