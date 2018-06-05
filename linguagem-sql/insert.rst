@@ -12,7 +12,7 @@ da tabela ``Clientes`` mostando que o campo ``ClienteCodigo`` é ``IDENTITY``, p
 
   INSERT Clientes (ClienteNome) VALUES ('Nome do Cliente');
 
-  CREARTE TABLE Clientes
+  CREATE TABLE Clientes
     (
     ClienteCodigo int IDENTITY CONSTRAINT PK_CLIENTES PRIMARY KEY...
 
