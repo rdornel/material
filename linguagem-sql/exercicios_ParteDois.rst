@@ -10,7 +10,7 @@ EXERCÍCIOS Parte 2
       FROM Clientes, Contas, Movimentos
       WHERE Clientes.ClienteCodigo=Contas.ClienteCodigo
       AND Contas.ContaNumero=Movimentos.ContaNumero 
-      ORDER BY MovimentoData desc);
+      ORDER BY MovimentoData desc;
 
 2. Mostre o nome do cliente, sobrenome e a sua renda convertida em dolar e euro.
 
