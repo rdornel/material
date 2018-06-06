@@ -20,3 +20,6 @@ EXERCÍCIOS Parte 2
     SELECT ClienteNome, ClienteSobrenome, 
        (ClienteRendaAnual / 3.9) AS Dolar, (ClienteRendaAnual / 4.4) AS Euro 
 	   FROM Clientes;
+
+	   
+3. Traga o nome dos clientes, o sobrenome, o bairro, o estado civil (descrito), o sexo (descrito) e classifique o cliente de acordo com a sua renda anual, C tem renda menor que 50.000, B tem renda menor que 70.000 e A tem renda acima de 70.000.
