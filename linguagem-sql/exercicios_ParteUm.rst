@@ -18,7 +18,12 @@ EXERCÍCIOS Parte 1
 
     SELECT * FROM FERIADOS;
 
+2. Escolha 5 clientes e cadastre cartões de crédito para eles.
 
+  .. code-block:: sql
+    :linenos:
+
+    INSERT ....;
     
   
 	
