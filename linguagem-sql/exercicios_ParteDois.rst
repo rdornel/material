@@ -36,18 +36,23 @@ EXERCÍCIOS Parte 2
   .. code-block:: sql
     :linenos:
 
-    SELECT;
+    SELECT ClienteNome, ClienteBairro, AgenciaBairro, AgenciaNome FROM Clientes, Agencias
+      WHERE ClienteBairro=AgenciaBairro;
 	
 5. Mostre todos os clientes possuem número no seu e-mail.
 
    .. code-block:: sql
     :linenos:
 
-    SELECT;
+    SELECT Clientes.ClienteNome, Clientes.ClienteEmail
+      FROM dbo.Clientes
+      WHERE Clientes.ClienteEmail LIKE '%[0-9]%';
 	
 6. Mostre todos os clientes em que o nome da rua começa começa com R. e não com RUA.
 
    .. code-block:: sql
     :linenos:
 
-    SELECT;
+    SELECT ClienteRua FROM dbo.Clientes WHERE
+      ClienteRua LIKE 'R.%'
+      AND ClienteRua NOT LIKE 'RUA%' ;
