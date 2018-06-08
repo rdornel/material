@@ -23,7 +23,8 @@ EXERCÍCIOS Parte 1
   .. code-block:: sql
     :linenos:
 
-    INSERT ....;
+    INSERT CartaoCredito (AgenciaCodigo, ContaNumero, ClienteCodigo, CartaoCodigo, CartaoLimite, CartaoExpira, CartaoCodigoSeguranca) 
+	                          VALUES (1,'562296-2',25,'1001-2002-3003-4004',3500.00,'2020-10-10',	123  );
     
   
 	
