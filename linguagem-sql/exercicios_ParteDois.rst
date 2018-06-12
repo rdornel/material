@@ -111,3 +111,16 @@ EXERCÍCIOS Parte 2
 	AND dbo.Contas.ContaNumero=dbo.Movimentos.ContaNumero
 	AND ContaAbertura >= '2008-01-01';
 
+12. Faça uma consulta que classifique os clientes em Regiões conforme o bairro que moram.
+
+  .. code-block:: sql
+    :linenos:
+
+    SELECT ;
+	
+13. Mostra o nome do cliente e o tipo de movimentação, apenas para as movimentações de débito.
+
+  .. code-block:: sql
+    :linenos:
+
+    SELECT ;
