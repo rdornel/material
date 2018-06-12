@@ -66,12 +66,36 @@ EXERCÍCIOS Parte 2
 	  
 7. Mostre o nome do cliente e a renda apenas do 5 melhores clientes com base na sua renda.
 
+  .. code-block:: sql
+    :linenos:
+
+    SELECT
+
 8. Mostre o nome do cliente e a renda apenas do 5 piores clientes com base na sua renda.
+
+  .. code-block:: sql
+    :linenos:
+
+    SELECT
 
 9. Mostre oo nome e a rua dos clientes que moram em residencias cujo número está entre 300 e 500.
 
+  .. code-block:: sql
+    :linenos:
+
+    SELECT
+
 10. Utilizando o conceito de sub consulta mostre quais clientes não possuem cartão de crédito.
+
+  .. code-block:: sql
+    :linenos:
+
+    SELECT
 
 11. Mostre o nome do cliente, o nome da agêmncia e o bairro da agência, as movimentações do clientes e o limite do cartão de crédito dele somente para os clientes em que a conta foi aberta a partir de 2008.
 
+  .. code-block:: sql
+    :linenos:
+
+    SELECT
 
