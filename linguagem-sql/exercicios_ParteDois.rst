@@ -27,7 +27,16 @@ EXERCÍCIOS Parte 2
   .. code-block:: sql
     :linenos:
 
-    SELECT ;
+    SELECT ClienteNome, ClienteSobrenome, ClienteBairro, ClienteEstadoCivil,
+		CASE WHEN ClienteEstadoCivil = 'S' THEN 'Solteiro' ELSE 'Casado' END AS ESTADOCIVILDECRITO,
+		ClienteSexo,
+		CASE WHEN ClienteSexo = 'M' THEN 'Masculino' ELSE 'Feminino' END AS SEXODESCRITO,
+		ClienteRendaAnual,
+		CASE WHEN ClienteRendaAnual < 50000 THEN 'C' 
+		WHEN ClienteRendaAnual < 70000 THEN 'B'
+		ELSE 'A'
+		END AS 'CLASSIFICAÇÃO'
+		FROM Clientes ;
 	   
 4. Liste todos os clientes que moram no mesmo bairro das agências do banco.
 
