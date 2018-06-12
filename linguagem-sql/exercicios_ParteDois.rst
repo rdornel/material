@@ -63,3 +63,7 @@ EXERCÍCIOS Parte 2
     SELECT ClienteRua FROM dbo.Clientes WHERE
       ClienteRua LIKE 'R.%'
       AND ClienteRua NOT LIKE 'RUA%' ;
+	  
+7. Mostre o nome do cliente e a renda apenas do 5 melhores clientes com base na sua renda.
+
+8. Mostre o nome do cliente e a renda apenas do 5 piores clientes com base na sua renda.
