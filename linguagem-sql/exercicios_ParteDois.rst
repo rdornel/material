@@ -72,4 +72,6 @@ EXERCÍCIOS Parte 2
 
 10. Utilizando o conceito de sub consulta mostre quais clientes não possuem cartão de crédito.
 
+11. Mostre o nome do cliente, o nome da agêmncia e o bairro da agência, as movimentações do clientes e o limite do cartão de crédito dele somente para os clientes em que a conta foi aberta a partir de 2008.
+
 
