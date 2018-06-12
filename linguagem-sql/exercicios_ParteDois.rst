@@ -27,9 +27,7 @@ EXERCÍCIOS Parte 2
   .. code-block:: sql
     :linenos:
 
-    SELECT ClienteNome, ClienteSobrenome, 
-       (ClienteRendaAnual / 3.9) AS Dolar, (ClienteRendaAnual / 4.4) AS Euro 
-	   FROM Clientes;
+    SELECT ;
 	   
 4. Liste todos os clientes que moram no mesmo bairro das agências do banco.
 
