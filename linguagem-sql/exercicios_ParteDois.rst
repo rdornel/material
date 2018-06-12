@@ -116,11 +116,20 @@ EXERCÍCIOS Parte 2
   .. code-block:: sql
     :linenos:
 
-    SELECT ;
+    SELECT dbo.Clientes.ClienteNome, dbo.Clientes.ClienteBairro, 
+		CASE WHEN ClienteBairro IN ('ITINGA','FLORESTA')  
+		THEN 'SUL' END  AS [REGIÃO] 
+		FROM Clientes
+ ;
 	
 13. Mostra o nome do cliente e o tipo de movimentação, apenas para as movimentações de débito.
 
   .. code-block:: sql
     :linenos:
 
-    SELECT ;
+    SELECT ClienteNome, MovimentoValor, MovimentoTipo , TipoMovimentoDescricao
+		FROM Clientes, Contas, Movimentos, TipoMovimento
+		WHERE Clientes.ClienteCodigo=Contas.ClienteCodigo
+		AND Contas.ContaNumero=dbo.Movimentos.ContaNumero
+		AND dbo.Movimentos.MovimentoTipo=dbo.TipoMovimento.TipoMovimentoCodigo ;
+	
