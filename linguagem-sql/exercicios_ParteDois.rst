@@ -70,4 +70,6 @@ EXERCÍCIOS Parte 2
 
 9. Mostre oo nome e a rua dos clientes que moram em residencias cujo número está entre 300 e 500.
 
+10. Utilizando o conceito de sub consulta mostre quais clientes não possuem cartão de crédito.
+
 
