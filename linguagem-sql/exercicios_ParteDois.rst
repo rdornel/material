@@ -119,8 +119,7 @@ EXERCÍCIOS Parte 2
     SELECT dbo.Clientes.ClienteNome, dbo.Clientes.ClienteBairro, 
 		CASE WHEN ClienteBairro IN ('ITINGA','FLORESTA')  
 		THEN 'SUL' END  AS [REGIÃO] 
-		FROM Clientes
- ;
+		FROM Clientes;
 	
 13. Mostra o nome do cliente e o tipo de movimentação, apenas para as movimentações de débito.
 
@@ -131,5 +130,5 @@ EXERCÍCIOS Parte 2
 		FROM Clientes, Contas, Movimentos, TipoMovimento
 		WHERE Clientes.ClienteCodigo=Contas.ClienteCodigo
 		AND Contas.ContaNumero=dbo.Movimentos.ContaNumero
-		AND dbo.Movimentos.MovimentoTipo=dbo.TipoMovimento.TipoMovimentoCodigo ;
+		AND dbo.Movimentos.MovimentoTipo=dbo.TipoMovimento.TipoMovimentoCodigo;
 	
