@@ -67,3 +67,7 @@ EXERCÍCIOS Parte 2
 7. Mostre o nome do cliente e a renda apenas do 5 melhores clientes com base na sua renda.
 
 8. Mostre o nome do cliente e a renda apenas do 5 piores clientes com base na sua renda.
+
+9. Mostre oo nome e a rua dos clientes que moram em residencias cujo número está entre 300 e 500.
+
+
