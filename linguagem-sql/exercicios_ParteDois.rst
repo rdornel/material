@@ -62,40 +62,52 @@ EXERCÍCIOS Parte 2
 
     SELECT ClienteRua FROM dbo.Clientes WHERE
       ClienteRua LIKE 'R.%'
-      AND ClienteRua NOT LIKE 'RUA%' ;
+      AND ClienteRua NOT LIKE 'RUA%';
 	  
 7. Mostre o nome do cliente e a renda apenas do 5 melhores clientes com base na sua renda.
 
   .. code-block:: sql
     :linenos:
 
-    SELECT
+    SELECT TOP 5 ClienteNome, ClienteRendaAnual 
+	FROM dbo.Clientes
+	ORDER BY ClienteRendaAnual DESC;
 
 8. Mostre o nome do cliente e a renda apenas do 5 piores clientes com base na sua renda.
 
   .. code-block:: sql
     :linenos:
 
-    SELECT
+    SELECT TOP 5 ClienteNome, ClienteRendaAnual 
+	FROM dbo.Clientes
+	ORDER BY ClienteRendaAnual;
 
 9. Mostre oo nome e a rua dos clientes que moram em residencias cujo número está entre 300 e 500.
 
   .. code-block:: sql
     :linenos:
 
-    SELECT
+    SELECT ClienteNome, ClienteRua FROM dbo.Clientes
+		WHERE ClienteNumero BETWEEN 300 AND 500;
 
 10. Utilizando o conceito de sub consulta mostre quais clientes não possuem cartão de crédito.
 
   .. code-block:: sql
     :linenos:
 
-    SELECT
+    SELECT * FROM dbo.Clientes WHERE ClienteCodigo NOT IN 
+		(SELECT ClienteCodigo FROM dbo.CartaoCredito);
 
 11. Mostre o nome do cliente, o nome da agêmncia e o bairro da agência, as movimentações do clientes e o limite do cartão de crédito dele somente para os clientes em que a conta foi aberta a partir de 2008.
 
   .. code-block:: sql
     :linenos:
 
-    SELECT
+    SELECT ClienteNome, AgenciaNome, AgenciaBairro, MovimentoValor
+	FROM dbo.Clientes, dbo.Agencias, dbo.Contas, dbo.CartaoCredito, dbo.Movimentos
+	WHERE clientes.ClienteCodigo=Contas.ClienteCodigo
+	AND agencias.AgenciaCodigo=dbo.Contas.AgenciaCodigo
+	AND CartaoCredito.ClienteCodigo=Clientes.ClienteCodigo
+	AND dbo.Contas.ContaNumero=dbo.Movimentos.ContaNumero
+	AND ContaAbertura >= '2008-01-01';
 
