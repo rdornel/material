@@ -130,5 +130,6 @@ EXERCÍCIOS Parte 2
 		FROM Clientes, Contas, Movimentos, TipoMovimento
 		WHERE Clientes.ClienteCodigo=Contas.ClienteCodigo
 		AND Contas.ContaNumero=dbo.Movimentos.ContaNumero
-		AND dbo.Movimentos.MovimentoTipo=dbo.TipoMovimento.TipoMovimentoCodigo;
+		AND dbo.Movimentos.MovimentoTipo=dbo.TipoMovimento.TipoMovimentoCodigo
+		AND TipoMovimento.TipoMovimentoCodigo=-1;
 	
