@@ -46,7 +46,7 @@ EXERCÍCIOS Parte 3
     FROM Contas INNER JOIN dbo.Agencias ON Agencias.AgenciaCodigo = Contas.AgenciaCodigo
     GROUP BY dbo.Agencias.AgenciaNome;
 
-5. Mostre as duas cidades que tem o maior saldo total
+5. Mostre as duas cidades que tem o maior saldo total.
 
   .. code-block:: sql
     :linenos:
@@ -56,7 +56,7 @@ EXERCÍCIOS Parte 3
     GROUP BY AgenciaCidade
     ORDER BY 2 DESC;
 
-6. Mostre qual a agência tem o maior montante de emprestimo
+6. Mostre qual a agência tem o maior montante de emprestimo.
 
   .. code-block:: sql
     :linenos:
@@ -65,7 +65,7 @@ EXERCÍCIOS Parte 3
     FROM dbo.Emprestimos INNER JOIN Agencias ON Agencias.AgenciaCodigo = Emprestimos.AgenciaCodigo
     ORDER BY 2 DESC;
 
-7. Mostre qual o menor valor devido, o maior e o total devido da tabela devedor
+7. Mostre qual o menor valor devido, o maior e o total devido da tabela devedor.
 
   .. code-block:: sql
     :linenos:
@@ -101,7 +101,7 @@ EXERCÍCIOS Parte 3
     ORDER BY 3 DESC;
 
 
-10. Utilizando a questão anterior, incluia o sexo do cliente e mostre também a diferença entre o que o ele emprestou e o que ele está devendo.
+10. Utilizando a questão anterior, inclua o sexo do cliente e mostre também a diferença entre o que ele emprestou e o que ele está devendo.
 
   .. code-block:: sql
     :linenos:
@@ -146,7 +146,7 @@ Cadastre um cartão de crédito com limite de 5000,00.
     UPDATE dbo.Clientes SET ClienteRua = 'Rua da Univille' WHERE ClienteNome = 'Ana';
 	
 
-13. Apague todos os registros do cliente Vania.
+13. Apague todos os registros da cliente Vânia.
 
   .. code-block:: sql
     :linenos:
@@ -160,7 +160,7 @@ Cadastre um cartão de crédito com limite de 5000,00.
     DELETE FROM dbo.Contas WHERE ClienteCodigo = @ClienteCodigo
     DELETE FROM dbo.Clientes WHERE ClienteCodigo = @ClienteCodigo
 
-14. Mostre nome e sobrenome e se o cliente for homem, mostre Sr e se for mulher Sra na frente do nome.Use o MinhaCaixa_Beta para resolver essa questão.
+14. Mostre nome e sobrenome e se o cliente for homem, mostre Sr. e se for mulher Sra. na frente do nome. Use o MinhaCaixa_Beta para resolver essa questão.
 
   .. code-block:: sql
     :linenos:
@@ -197,7 +197,7 @@ Cadastre um cartão de crédito com limite de 5000,00.
     FROM dbo.Clientes
 
 		
-17. Mostre o nome do cliente, o número da conta, o saldo da conta, apenas para os 15 melhores clientes
+17. Mostre o nome do cliente, o número da conta, o saldo da conta, apenas para os 15 melhores clientes.
 
   .. code-block:: sql
     :linenos:
@@ -212,7 +212,7 @@ Cadastre um cartão de crédito com limite de 5000,00.
     GROUP BY ClienteNome + ' ' + ClienteSobrenome , Contas.ContaNumero
     ORDER BY 3 DESC
 
-18. Mostre quais são os 5 dias com maior movimento (valor) no banco
+18. Mostre quais são os 5 dias com maior movimento (valor) no banco.
 
   .. code-block:: sql
     :linenos:
@@ -225,13 +225,13 @@ Cadastre um cartão de crédito com limite de 5000,00.
     GROUP BY DAY(Movimentos.MovimentoData)
     ORDER BY 2 DESC
 
-19. Crie uma função que receba o código do estado civil e mostre ele por extenso
+19. Crie uma função que receba o código do estado civil e mostre ele por extenso.
 
-20. Crie uma função que receba o código do sexo e mostre ele por extenso
+20. Crie uma função que receba o código do sexo e mostre ele por extenso.
 
 21. Crie um procedure que receba o número da conta e cadastre um cartão de crédito com limite de R$ 500 para o cliente caso ele não tenha (MinhaCaixa).
 	
-22. Use o script abaixo para criar uma procedure que receba a matricula, disciplina, ano e calcule o total de pontos e a média do aluno
+22. Use o script abaixo para criar uma procedure que receba a matricula, disciplina, ano e calcule o total de pontos e a média do aluno.
 
   .. code-block:: sql
     :linenos:

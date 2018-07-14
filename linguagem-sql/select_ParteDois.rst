@@ -40,6 +40,7 @@ O comando LEFT indica que todos os registros existentes na tabela da sua esquerd
 - RIGHT
 
 Já o comando RIGHT traz todos os registros da tabela da direita e os registos da tabela da esquerda, mostrando em branco aqueles que não tem relação.
+  
   .. code-block:: sql
     :linenos:
 
@@ -47,7 +48,7 @@ Já o comando RIGHT traz todos os registros da tabela da direita e os registos d
 
 - FULL
 
-O comando full retorna todos os registros das tabelas relacionadas, mesmo que não existe um correspondente entre elas.
+O comando FULL retorna todos os registros das tabelas relacionadas, mesmo que não exista um correspondente entre elas.
 
   .. code-block:: sql
     :linenos:
@@ -64,7 +65,7 @@ Efetua um operação de produto cartesiano, para cada registro de uma tabela ele
     SELECT * FROM CLIENTES CROSS JOIN Contas;
 
 
-- As FUNÇÕES DE AGREGAÇÃO, ``SUM``, ``MIN``, ``MAX``, ``COUNT``, ``AVG`` permitem um nível mais robusto de informação, criando cojuntos de dados agrupados, médias entre outros, permitindo que possamos resumir e totatlizar comjuntos de resultados. Sempre que usarmos a função de agregação em conjunto com um campo agregador devemos usar a função ``GROUP BY`` para indicar qual o compo será o responsável pelo agrupamento das informações.
+- As FUNÇÕES DE AGREGAÇÃO, ``SUM`` (soma), ``MIN`` (mínimo), ``MAX`` (máximo), ``COUNT`` (contagem), ``AVG`` (média), permitem um nível mais robusto de informação, criando conjuntos de dados agrupados, médias entre outros, permitindo o resumo e a totalização de conjuntos de resultados. Sempre que usarmos a função de agregação em conjunto com um campo agregador, devemos usar a função ``GROUP BY`` para indicar qual o campo será o responsável pelo agrupamento das informações.
 
 Caso você deseje comparar conjuntos de informações contidos na função de agragação você deve compará-los usando o ``HAVING``.
 
@@ -93,7 +94,7 @@ Caso você deseje comparar conjuntos de informações contidos na função de ag
 
 - EXISTS
 
-O comando EXISTS é pareceido com o comando IN, quando queremos comparar mais de um campo contra uma subconsulta.
+O comando EXISTS é parecido com o comando ``IN``, quando queremos comparar mais de um campo contra uma subconsulta.
 
   .. code-block:: sql
     :linenos:
@@ -131,7 +132,7 @@ O comando EXISTS é pareceido com o comando IN, quando queremos comparar mais de
   
 - Variáveis
 
-Muitas vezes necessitamos armazenar determinados valores para uso posterior. Um exemplo é gardar um valor total em uma variável para que ele seja usado em cálculo de percentual por exemplo
+Muitas vezes necessitamos armazenar determinados valores para uso posterior. Um exemplo é guardar um valor total em uma variável para que ele seja usado em cálculo de percentual por exemplo
 
 .. code-block:: sql
   :linenos:

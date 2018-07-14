@@ -3,7 +3,7 @@ SELECT - Nível 1
 
 - Comando utilizado para recuperar as informações armazenadas em um banco de dados.
 
-O comando ``SELECT`` é composto dos atributos que desejamos, a ou as tabela(s) que possuem esses atributos e as consdições que podem ajudar a filtrar os resultados desejados. Não é uma boa prática usar o ``*`` ou *star* para trazer os registros de uma tabela. Procure especificar somente os campos necessários. Isso ajuda o motor de execação de consultas a construir bons planos de execução. Se você conhecer a estrutura da tabela e seus índices, procure tirar proveito disso usando campos chaves, ou buscando e filtrando por atributos que fazem parte de chaves e índices no banco de dados.
+O comando ``SELECT`` é composto dos atributos que desejamos, a ou as tabela(s) que possuem esses atributos e as condições que podem ajudar a filtrar os resultados desejados. Não é uma boa prática usar o ``*`` ou *star* para trazer os registros de uma tabela. Procure especificar somente os campos necessários. Isso ajuda o motor de execação de consultas a construir bons planos de execução. Se você conhecer a estrutura da tabela e seus índices, procure tirar proveito disso usando campos chaves, ou buscando e filtrando por atributos que fazem parte de chaves e índices no banco de dados.
 
 .. code-block:: sql
   :linenos:
@@ -32,7 +32,7 @@ Procure usar campos restritivos ou indexados para otimizar sua consulta. Na tabe
 
 - Repare que a tabela Clientes possui uma chave no ``ClienteCodigo``, portanto se você fizer alguma busca ou solicitar o campo ``ClienteCodigo`` a busca será muito mais rápida. Caso você faça alguma busca por algum campo que não seja chave ou não esteja "indexado" (Veremos índice mais pra frente) a busca vai resultar em uma varredura da tabela, o que não é um bom negócio para o banco de dados.
 
-- Para escrever um comando ``SELECT`` procuramos mostrar ou buscar apenas os atributos que vamos trabalhar, evitando assim carregadar dados desecessários e que serão descartados na hora da montagem do formulário da aplicação. Também recomendamos o uso do nome da Tabela antes dos campos para evitar erros de ambíguidade que geralmente aparecem quando usamos mais de uma tabela.
+- Para escrever um comando ``SELECT`` procuramos mostrar ou buscar apenas os atributos que vamos trabalhar, evitando assim carregar dados denecessários e que serão descartados na hora da montagem do formulário da aplicação. Também recomendamos o uso do nome da Tabela antes dos campos para evitar erros de ambíguidade que geralmente aparecem quando usamos mais de uma tabela.
 
 .. code-block:: sql
   :linenos:
@@ -50,7 +50,7 @@ Procure usar campos restritivos ou indexados para otimizar sua consulta. Na tabe
 
 - Você pode usar o operador ``ORDER BY`` para ordenar os registros da tabela.
 
-Procure identificar os campos da ordenação e verificar se eles possuem alguma ordenação na tabela através de algum índice. As opererações de ordenação são muito custozas para o banco de dados. A primeira opção traz os campos ordenados em ordem ascendente ``ASC``, não precisando informar o operador. Caso você deseje uma ordenação descendente ``DESC`` você deverá informar o ``DESC``.
+Procure identificar os campos da ordenação e verificar se eles possuem alguma ordenação na tabela através de algum índice. As operações de ordenação são muito custosas para o banco de dados. A primeira opção traz os campos ordenados em ordem ascendente ``ASC``, não precisando informar o operador. Caso você deseje uma ordenação descendente você deverá informar o ``DESC``.
 
 .. code-block:: sql
   :linenos:
@@ -61,7 +61,7 @@ Procure identificar os campos da ordenação e verificar se eles possuem alguma 
   SELECT Clientes.ClienteNome FROM Clientes
     ORDER BY Clientes.ClienteNome DESC;
 
-- Outro operador que é muito utilizado em parceria com o ``ORDER BY`` é o ``TOP``, que permite limitar o conjunto de linhas retornado. Caso ele não esteja associado com o ``ORDER BY`` ele trará um determinado conjunto de dados baseado na ordem em que estão armazenados. Caso você use um operador ``ORDER BY`` ele mostrar os ``TOP`` maiores ou menores. O Primeiro exemplo mostra as duas maiores contas em relação ao seu saldo. A segunda, as duas menores.
+- Outro operador que é muito utilizado em parceria com o ``ORDER BY`` é o ``TOP``, que permite limitar o conjunto de linhas retornado. Caso ele não esteja associado com o ``ORDER BY`` ele trará um determinado conjunto de dados baseado na ordem em que estão armazenados. Caso você use um operador ``ORDER BY`` ele mostrará os ``TOP`` maiores ou menores. O Primeiro exemplo mostra as duas maiores contas em relação ao seu saldo. A segunda, as duas menores.
 
 .. code-block:: sql
   :linenos:
@@ -113,7 +113,7 @@ Procure identificar os campos da ordenação e verificar se eles possuem alguma 
     ELSE 'Cliente A' END AS 'Curva Cliente'
     FROM dbo.Contas;
 
-- Podemos incluir em nossas consultas diversos operadores condicionais: ``=`` (igual), ``<>`` (diferente), ``>``, ``<``, ``<=``, ``>=``, ``OR`` (ou), ``AND`` (e) e ``BETWEEN``.
+- Podemos incluir em nossas consultas diversos operadores condicionais: ``=`` (igual), ``<>`` (diferente), ``>`` (maior), ``<`` (menor), ``<=`` (menor ou igual), ``>=`` (maior ou igual), ``OR`` (ou), ``AND`` (e) e ``BETWEEN`` (entre).
 
 .. code-block:: sql
   :linenos:
@@ -137,7 +137,7 @@ Procure identificar os campos da ordenação e verificar se eles possuem alguma 
     WHERE C.Numero_conta=D.Numero_conta AND Nome_cliente IN ('Rodrigo','Laura')
     ORDER BY saldo DESC
 
-- O comando ``DISTINCT`` serve para retirar do retorno da consulta registros repitidos.
+- O comando ``DISTINCT`` serve para retirar do retorno da consulta registros repetidos.
 
 .. code-block:: sql
   :linenos:
@@ -145,7 +145,7 @@ Procure identificar os campos da ordenação e verificar se eles possuem alguma 
   SELECT DISTINCT Cidade_agencia FROM Agencia;
 
 
-- A SUB CONSULTA, ``IN`` e ``NOT IN`` são poderosos recursos para autilizar em buscas e filtragem de registros. Podemos criar subconjuntos de registros e usar operadores como ``IN`` para validar se os registros estão dentro daquele subconjunto.
+- A SUB CONSULTA, ``IN`` e ``NOT IN`` são poderosos recursos para auxiliar em buscas e filtragem de registros. Podemos criar subconjuntos de registros e usar operadores como ``IN`` para validar se os registros estão dentro daquele subconjunto.
 
 .. code-block:: sql
   :linenos:
@@ -163,7 +163,7 @@ Procure identificar os campos da ordenação e verificar se eles possuem alguma 
     ON
     TB2.AgenciaCodigo=Contas.AgenciaCodigo AND TB2.VALOR=Contas.ContaSaldo;
 
-- Os operadores ``UNION`` e ``UNION ALL`` ajudam a consolidar conjuntos de registros que são retornados por consultas distintas. O operador ``ALL`` faz a junção dos consultos sem eliminar duplicados. Precisamos obedecer o mesmo número de colunas e tipos de dados entre as consultas.
+- Os operadores ``UNION`` e ``UNION ALL`` ajudam a consolidar conjuntos de registros que são retornados por consultas distintas. O operador ``ALL`` faz a junção das consultas sem eliminar itens duplicados. Precisamos obedecer o mesmo número de colunas e tipos de dados entre as consultas.
 
 .. code-block:: sql
   :linenos:
