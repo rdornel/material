@@ -4,7 +4,7 @@ INDICES
 - Criação de índices e estatísitcas
 
 Os índices garantem um bom desempenho para as consultas que serão realizadas no banco de dados.
-Comece verificando com a procedure sp_help os metadados das tabelas para verificar se não existe um índice
+Comece verificando com a procedure ``sp_help`` os metadados das tabelas para verificar se não existe um índice
 que possa ajudar na sua consulta.
 
 Caso precise criar um índice comece analisando os campos que estão na sua cláusula WHERE.
