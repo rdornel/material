@@ -1,7 +1,10 @@
 FUNÇÕES
 =======
 
-- Uma função é ...
+- Uma função é uma sequência de comandos que executa alguma tarefa e que tem um nome. A sua principal finalidade é nos ajudar a organizar programas em pedaços que correspondam a como imaginamos uma solução do problema.
+
+
+ Exemplo de um Função:
 
 .. code-block:: sql
   :linenos:
