@@ -46,7 +46,7 @@ EXERCÍCIOS Parte 2
     SELECT ClienteNome, ClienteBairro, AgenciaBairro, AgenciaNome FROM Clientes, Agencias
       WHERE ClienteBairro=AgenciaBairro;
 	
-5. Mostre todos os clientes possuem número no seu e-mail.
+5. Mostre todos os clientes que possuem número no seu e-mail.
 
    .. code-block:: sql
     :linenos:
@@ -82,7 +82,7 @@ EXERCÍCIOS Parte 2
 	FROM dbo.Clientes
 	ORDER BY ClienteRendaAnual;
 
-9. Mostre oo nome e a rua dos clientes que moram em residencias cujo número está entre 300 e 500.
+9. Mostre o nome e a rua dos clientes que moram em residencias cujo número está entre 300 e 500.
 
   .. code-block:: sql
     :linenos:
@@ -90,7 +90,7 @@ EXERCÍCIOS Parte 2
     SELECT ClienteNome, ClienteRua FROM dbo.Clientes
 		WHERE ClienteNumero BETWEEN 300 AND 500;
 
-10. Utilizando o conceito de sub consulta mostre quais clientes não possuem cartão de crédito.
+10. Utilizando o conceito de sub consulta, mostre quais clientes não possuem cartão de crédito.
 
   .. code-block:: sql
     :linenos:
@@ -98,7 +98,7 @@ EXERCÍCIOS Parte 2
     SELECT * FROM dbo.Clientes WHERE ClienteCodigo NOT IN 
 		(SELECT ClienteCodigo FROM dbo.CartaoCredito);
 
-11. Mostre o nome do cliente, o nome da agêmncia e o bairro da agência, as movimentações do clientes e o limite do cartão de crédito dele somente para os clientes em que a conta foi aberta a partir de 2008.
+11. Mostre o nome do cliente, o nome da agência e o bairro da agência, as movimentações dos clientes e o limite do cartão de crédito deles, somente para os clientes em que a conta foi aberta a partir de 2008.
 
   .. code-block:: sql
     :linenos:
@@ -121,7 +121,7 @@ EXERCÍCIOS Parte 2
 		THEN 'SUL' END  AS [REGIÃO] 
 		FROM Clientes;
 	
-13. Mostra o nome do cliente e o tipo de movimentação, apenas para as movimentações de débito.
+13. Mostre o nome do cliente e o tipo de movimentação, apenas para as movimentações de débito.
 
   .. code-block:: sql
     :linenos:

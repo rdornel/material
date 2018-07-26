@@ -14,7 +14,7 @@ PROCEDURES
   INNER JOIN Contas ON Clientes.ClienteCodigo=Contas.ClienteCodigo
   WHERE Clientes.ClienteNome = @Nome;
   
-- Execução da procedure
+- Comando para a execução da procedure.
 
 .. code-block:: sql
   :linenos:
@@ -24,7 +24,7 @@ PROCEDURES
 IF
 --
 
-Comando utilizado para checar condições.
+- Comando utilizado para checar condições.
 
 .. code-block:: sql
   :linenos:
@@ -52,7 +52,7 @@ Comando utilizado para checar condições.
 WHILE
 -----
 
-Comando utilizado para realizar laços de repetição.  
+- Comando utilizado para realizar laços de repetição.  
 
 .. code-block:: sql
   :linenos:
