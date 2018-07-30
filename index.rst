@@ -13,6 +13,9 @@ Material de Banco de Dados
 
   informacoes/index.rst
   introducao/index.rst
+  baixar-sql/index.rst
+  instalar-sql/index.rst
+  instalar-ssms/index.rst
   linguagem-sql/index.rst
   administracao/index.rst
   extra/index.rst
