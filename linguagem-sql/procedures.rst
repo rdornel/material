@@ -38,24 +38,30 @@ Comando utilizado para checar condições.
 .. code-block:: sql
   :linenos:
 
-  CREATE PROCEDURE uspRetornaSaldo2   
-  @Nome nvarchar(50)
+  CREATE PROCEDURE uspRetornaSeTemCartao   
+  @CodigoCliente int
   AS
   BEGIN
 
-	  IF @Nome = 'Ana'
+  DECLARE @CodigoClienteCartao INT 
+
+  SET @CodigoClienteCartao = (SELECT CartaoCredito.ClienteCodigo FROM Clientes LEFT JOIN CartaoCredito
+  ON CartaoCredito.ClienteCodigo = Clientes.ClienteCodigo WHERE CartaoCredito.ClienteCodigo = @CodigoCliente)
+	  
+	  IF @CodigoClienteCartao IS NULL
 		  BEGIN
-		  SELECT Clientes.ClienteNome, Contas.ContaSaldo
-		  FROM Clientes
-		  INNER JOIN Contas ON Clientes.ClienteCodigo=Contas.ClienteCodigo
-		  WHERE Clientes.ClienteNome = @Nome;
+		  SELECT * FROM CartaoCredito WHERE ClienteCodigo = @CodigoCliente;
 		  END
 	  ELSE
 		  BEGIN
-		  SELECT @Nome 
+		  SELECT 'LIGAR', * FROM Clientes WHERE ClienteCodigo = @CodigoCliente
 		  END
   
-  END
+  END;
+
+  EXEC uspRetornaSeTemCartao @CodigoCliente = 25; -- TEM CARTÃO
+
+  EXEC uspRetornaSeTemCartao @CodigoCliente = 1; --NÃO TEM CARTÃO
 
 
 WHILE
