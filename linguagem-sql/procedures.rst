@@ -15,8 +15,6 @@ PROCEDURES
   WHERE Clientes.ClienteCodigo = @CodigoCliente;
   
 - Execução da procedure, opção 1
-=======
-- Comando para a execução da procedure.
 
 .. code-block:: sql
   :linenos:
