@@ -7,4 +7,4 @@ Todo material será desenvolvido durante o ano letivo com a colaboração dos al
 
 Todo e qualquer conteúdo incluído dentro deste material será avaliado antes de ser publicado.
 
-Todo e quelquer texto, imagem, vídeo ou ainda qualquer conteúdo externo deverá ser referenciado, citando o autor ou proprietário do conteúdo.
+Todo e qualquer texto, imagem, vídeo ou ainda qualquer conteúdo externo deverá ser referenciado, citando o autor ou proprietário do conteúdo.
