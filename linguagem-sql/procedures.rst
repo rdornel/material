@@ -6,20 +6,29 @@ PROCEDURES
 .. code-block:: sql
   :linenos:
 
-  CREATE PROCEDURE uspRetornaSaldo   
-  @Nome nvarchar(50)
+  CREATE PROCEDURE uspRetornaIdade   
+  @CodigoCliente int
   AS   
-  SELECT Clientes.ClienteNome, Contas.ContaSaldo
+  SELECT Clientes.ClienteNome, YEAR(GETDATE())-YEAR(ClienteNascimento) AS IDADE
   FROM Clientes
   INNER JOIN Contas ON Clientes.ClienteCodigo=Contas.ClienteCodigo
-  WHERE Clientes.ClienteNome = @Nome;
+  WHERE Clientes.ClienteCodigo = @CodigoCliente;
   
-- Execução da procedure
+- Execução da procedure, opção 1
 
 .. code-block:: sql
   :linenos:
 
-  exec uspRetornaSaldo 'Ana';
+  exec uspRetornaIdade 1;
+  
+- Execução da procedure, opção 2
+
+.. code-block:: sql
+  :linenos:
+  
+  declare @parametro int
+  set @parametro = 1 --Código do Cliente desejado
+  exec uspRetornaIdade @parametro;
 
 IF
 --
