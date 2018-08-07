@@ -18,8 +18,8 @@ http://www.w3schools.com/sql/
   select_ParteDois.rst
   exercicios_ParteTres.rst
   view.rst
-  procedures.rst
   funcoes.rst
+  procedures.rst
   transacoes.rst
   triggers.rst
   indices.rst
