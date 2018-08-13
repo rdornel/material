@@ -9,20 +9,22 @@ CURSORES
 .. code-block:: sql
   :linenos:
 
-  DECLARE @ClienteNome VARCHAR(50);
+    DECLARE @ClienteNome VARCHAR(50), @ClienteSexo CHAR(1), @contador INT=0;
 
-	DECLARE [cursorListaCliente] CURSOR FOR 
-	SELECT
-     Clientes.ClienteNome as Nome
-	FROM Clientes
+      DECLARE [cursorListaCliente] CURSOR FOR
+      SELECT Clientes.ClienteNome , ClienteSexo 
+      FROM Clientes
 
-	OPEN [cursorListaCliente]
-	FETCH NEXT FROM [cursorListaCliente] INTO @ClienteNome
-	WHILE @@FETCH_STATUS = 0
-	BEGIN
-	SELECT @ClienteNome;
-	FETCH NEXT FROM [cursorListaCliente] INTO @ClienteNome
-	END
-	CLOSE [cursorListaCliente];
-   DEALLOCATE [cursorListaCliente];
+      OPEN [cursorListaCliente]
+      FETCH NEXT FROM [cursorListaCliente] INTO @ClienteNome, @ClienteSexo;
+	 
+      WHILE @@FETCH_STATUS = 0
+      BEGIN
+	   SET @contador=@contador+1;
+
+      SELECT @ClienteNome as Nome, @ClienteSexo AS Sexo, @contador;
+      FETCH NEXT FROM [cursorListaCliente] INTO @ClienteNome, @ClienteSexo
+      END
+      CLOSE [cursorListaCliente];
+	DEALLOCATE [cursorListaCliente];
 
