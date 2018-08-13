@@ -20,6 +20,7 @@ http://www.w3schools.com/sql/
   view.rst
   funcoes.rst
   procedures.rst
+  cursores.rst
   transacoes.rst
   triggers.rst
   indices.rst
