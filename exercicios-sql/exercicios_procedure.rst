@@ -15,7 +15,9 @@ EXERCÍCIOS Procedure
 	
 	CREATE TABLE Materias;
 	
-	CREATE TABLE Cursando;
+	CREATE TABLE Cursos (Carga horário 144);
+	
+	CREATE TABLE Matricula (Perído Letivo 2018);
 	
 	
 	
