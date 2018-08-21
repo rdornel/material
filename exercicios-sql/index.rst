@@ -9,6 +9,6 @@ Exercícios
   exercicios_ParteUm.rst
   exercicios_ParteDois.rst
   exercicios_ParteTres.rst
-
+  exercicios_procedure.rst
   
 
