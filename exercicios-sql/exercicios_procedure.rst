@@ -7,7 +7,7 @@ EXERCÍCIOS Procedure
   .. code-block:: sql
     :linenos:
 
-    CREATE DATABSE Universidade;
+    CREATE DATABASE Universidade;
 	
 	CREATE TABLE Alunos;
 	
@@ -15,7 +15,7 @@ EXERCÍCIOS Procedure
 	
 	CREATE TABLE Materias;
 	
-	CREATE TABLE Matricula;
+	CREATE TABLE Cursando;
 	
 	
 	
