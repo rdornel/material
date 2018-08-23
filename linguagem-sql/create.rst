@@ -44,6 +44,18 @@ Nesse exemplo adicionamos uma chave primária ao campo ``ClienteCodigo`` e confi
   );
 
 
+Nesse exemplo adicionamos uma chave primária composta.
+
+.. code-block:: sql
+  :linenos:
+
+  CREATE TABLE Clientes (
+    ClienteCodigo int IDENTITY (1,1) ,
+    ClienteCPF(11)
+	CONSTRAINT PK_Cliente PRIMARY KEY (ClienteCodigo,ClienteCPF)
+  );
+
+  
 CONSTRAINT FOREIGN KEY
 ----------------------
 
