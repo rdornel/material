@@ -70,8 +70,22 @@ EXERCÍCIOS Procedure
 	--                        @CURSO = 'SIS' -- char(3)
 
 	
+Exemplo de INSERT com SELECT
+
+
+  .. code-block:: sql
+    :linenos:
 	
-	
+	INSERT MATRICULA
+	(
+		MATRICULA,
+		CURSO,
+		MATERIA,
+		PROFESSOR,
+		PERLETIVO
+		
+	)
+	SELECT 1 AS MATRICULA, CURSO, SIGLA,PROFESSOR, YEAR(GETDATE()) FROM MATERIAS WHERE CURSO ='ENG'
 
 
   
