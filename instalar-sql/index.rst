@@ -7,13 +7,13 @@ Para dar início à instalação, Clique com o botão direito no arquivo e cliqu
    :scale: 70%
    :alt: instalar1
 
-Espere até aparecer uma janela(pode demorar um pouco), após isso, clique em instalação e depois em “Nova instalação autônoma”.
+Clique em setup:
 
 .. figure:: /img/InstalarSQL/instalar(2).PNG
    :scale: 70%
    :alt: instalar2
 
-Espere até chegar nessa tela:
+Espere até aparecer uma janela(pode demorar um pouco), após isso, clique em instalação e depois em “Nova instalação autônoma”.
 
 .. figure:: /img/InstalarSQL/instalar(3).PNG
    :scale: 70%
