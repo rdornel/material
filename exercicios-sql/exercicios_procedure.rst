@@ -68,6 +68,8 @@ EXERCÍCIOS Procedure
 	--GO
 	--EXEC procMATRICULAALUNO @NOME = 'Pedro', -- varchar(50)
 	--                        @CURSO = 'SIS' -- char(3)
+	
+	--Calculo do percentual de Frequencia (NrFaltas-144*100)/144
 
 	
 Exemplo de INSERT com SELECT
