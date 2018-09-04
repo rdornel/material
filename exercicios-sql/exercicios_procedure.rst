@@ -86,6 +86,43 @@ Exemplo de INSERT com SELECT
 		
 	)
 	SELECT 1 AS MATRICULA, CURSO, SIGLA,PROFESSOR, YEAR(GETDATE()) FROM MATERIAS WHERE CURSO ='ENG'
+	
+Exemplo de PROCEDURE para inserir (atualizar) as notas
+
+
+  .. code-block:: sql
+    :linenos:
+	
+	CREATE PROCEDURE sp_CadastraNotas
+	(
+	@MATRICULA INT, @CURSO CHAR(3), @MATERIA CHAR(3)
+	--,@PROFESSOR INT
+	,@PERLETIVO CHAR(4)
+	,@NOTA FLOAT
+	,@FALTA INT 
+	--,@PARAMETRO
+	)
+	AS
+	BEGIN
+
+	UPDATE MATRICULA SET N1 = @NOTA, F1=@FALTA
+	WHERE MATRICULA = @MATRICULA AND CURSO = @CURSO 
+	AND MATERIA = @MATERIA AND PERLETIVO = @PERLETIVO
+
+	END
+
+Exemplo de execução da PROCEDURE para inserir (atualizar) as notas
+
+
+  .. code-block:: sql
+    :linenos:
+	
+	EXEC sp_CadastraNotas @MATRICULA = 1,  -- int
+						  @CURSO = 'ENG',     -- char(3)
+						  @MATERIA = 'BDA',   -- char(3)
+						  @PERLETIVO = '2018', -- char(4)
+						  @NOTA = 7.0,     -- float
+						  @FALTA = 4       -- int
 
 
   
