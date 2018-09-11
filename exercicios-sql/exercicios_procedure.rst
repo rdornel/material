@@ -192,8 +192,8 @@ Exemplo de PROCEDURE para inserir (atualizar) as notas
 				TOTALPONTOS = @NOTA + N1 + N2 + N3,
 				TOTALFALTAS = @FALTA + F1 + F2 + F3,
 				MEDIA = (@NOTA + N1 + N2 + N3) / 4,
-				MEDIAFINAL = (@NOTA + N1 + N2 + N4) / 4,
-				PERCFREQ = 144 - (@FALTA + F2 + F3 + F4) 
+				MEDIAFINAL = (@NOTA + N1 + N2 + N3) / 4,
+				PERCFREQ = 144 - (@FALTA + F1 + F2 + F3) 
 			WHERE MATRICULA = @MATRICULA
 				  AND CURSO = @CURSO
 				  AND MATERIA = @MATERIA
