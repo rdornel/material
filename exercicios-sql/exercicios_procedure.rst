@@ -53,23 +53,49 @@ EXERCÍCIOS Procedure
 	--CONSTRAINT FK_MATERIAS FOREIGN KEY (MATERIA) REFERENCES MATERIAS (SIGLA),
 	CONSTRAINT FK_PROFESSOR_MATRICULA FOREIGN KEY (PROFESSOR) REFERENCES PROFESSOR(PROFESSOR)
 	)
-	-->PROC MATRICULA
-	--CREATE PROCEDURE procMATRICULAALUNO
-	--(
-	--@NOME VARCHAR(50),
-	--@CURSO CHAR(3)
-	--)
-	--AS
-	--BEGIN
-	--SELECT * FROM ALUNOS WHERE NOME = @NOME
+	
+	
+	CREATE PROCEDURE sp_MatriculaAluno
+	(
+	@NOMEALUNO VARCHAR(50),
+	@CURSOALUNO VARCHAR(50)
+	)
+	AS
+	BEGIN
 
-	--SELECT * FROM MATERIAS WHERE CURSO = @CURSO
-	--END 
-	--GO
-	--EXEC procMATRICULAALUNO @NOME = 'Pedro', -- varchar(50)
-	--                        @CURSO = 'SIS' -- char(3)
+	DECLARE @MATRICULAALUNO INT, @CODIGOCURSO VARCHAR(3) 
+
+	SET @MATRICULAALUNO = (SELECT MATRICULA FROM ALUNOS WHERE NOME = @NOMEALUNO)
+
+	SET @CODIGOCURSO = (SELECT CURSO FROM CURSOS WHERE NOME = @CURSOALUNO)
+
+	INSERT MATRICULA
+		(
+				MATRICULA,
+				CURSO,
+				MATERIA,
+				PROFESSOR,
+				PERLETIVO
+
+		)
+		SELECT @MATRICULAALUNO AS MATRICULA, CURSO, SIGLA,PROFESSOR, YEAR(GETDATE()) AS PERLETIVO FROM MATERIAS WHERE CURSO ='ENG'
+
+	END
 	
 	--Calculo do percentual de Frequencia (144-NrFaltas*100)/144
+	
+	
+	--SELECT * FROM ALUNOS
+	INSERT ALUNOS
+	(
+		NOME
+	)
+	VALUES
+	('Guilherme' -- NOME - varchar(50)
+		)
+
+	EXEC sp_MatriculaAluno @NOMEALUNO = 'Guilherme', -- varchar(50)
+						   @CURSOALUNO = 'Sistemas' -- varchar(50)
 
 	
 Exemplo de INSERT com SELECT
@@ -95,23 +121,92 @@ Exemplo de PROCEDURE para inserir (atualizar) as notas
   .. code-block:: sql
     :linenos:
 	
-	CREATE PROCEDURE sp_CadastraNotas
+	ALTER PROCEDURE sp_CadastraNotas
 	(
-	@MATRICULA INT, @CURSO CHAR(3), @MATERIA CHAR(3)
-	--,@PROFESSOR INT
-	,@PERLETIVO CHAR(4)
-	,@NOTA FLOAT
-	,@FALTA INT 
-	--,@PARAMETRO
+    @MATRICULA INT,
+    @CURSO CHAR(3),
+    @MATERIA CHAR(3),
+    @PERLETIVO CHAR(4),
+    @NOTA FLOAT,
+    @FALTA INT,
+    @PARAMETRO INT
 	)
 	AS
 	BEGIN
 
-	UPDATE MATRICULA SET N1 = @NOTA, F1=@FALTA
-	WHERE MATRICULA = @MATRICULA AND CURSO = @CURSO 
-	AND MATERIA = @MATERIA AND PERLETIVO = @PERLETIVO
+		IF @PARAMETRO = 1
+		BEGIN
 
-	END
+			UPDATE MATRICULA
+			SET N1 = @NOTA,
+				F1 = @FALTA,
+				TOTALPONTOS = @NOTA,
+				TOTALFALTAS = @FALTA,
+				MEDIA = @NOTA
+			WHERE MATRICULA = @MATRICULA
+				  AND CURSO = @CURSO
+				  AND MATERIA = @MATERIA
+				  AND PERLETIVO = @PERLETIVO;
+		END;
+
+		ELSE IF @PARAMETRO = 2
+		BEGIN
+
+			UPDATE MATRICULA
+			SET N2 = @NOTA,
+				F2 = @FALTA,
+				TOTALPONTOS = @NOTA + N1,
+				TOTALFALTAS = @FALTA + F1,
+				MEDIA = (@NOTA + N1) / 2
+			WHERE MATRICULA = @MATRICULA
+				  AND CURSO = @CURSO
+				  AND MATERIA = @MATERIA
+				  AND PERLETIVO = @PERLETIVO;
+		END;
+
+		ELSE IF @PARAMETRO = 3
+		BEGIN
+
+			UPDATE MATRICULA
+			SET N3 = @NOTA,
+				F3 = @FALTA,
+				TOTALPONTOS = @NOTA + N1 + N2,
+				TOTALFALTAS = @FALTA + F1 + F2,
+				MEDIA = (@NOTA + N1 + N2) / 3
+			WHERE MATRICULA = @MATRICULA
+				  AND CURSO = @CURSO
+				  AND MATERIA = @MATERIA
+				  AND PERLETIVO = @PERLETIVO;
+		END;
+
+		ELSE IF @PARAMETRO = 4
+		BEGIN
+
+			DECLARE @RESULTADO VARCHAR(50),
+					@FREQUENCIA FLOAT,
+					@MEDIAFINAL FLOAT;
+
+			UPDATE MATRICULA
+			SET N4 = @NOTA,
+				F4 = @FALTA,
+				TOTALPONTOS = @NOTA + N1 + N2 + N3,
+				TOTALFALTAS = @FALTA + F1 + F2 + F3,
+				MEDIA = (@NOTA + N1 + N2 + N3) / 4,
+				MEDIAFINAL = (@NOTA + N1 + N2 + N4) / 4,
+				PERCFREQ = 144 - (@FALTA + F2 + F3 + F4) 
+			WHERE MATRICULA = @MATRICULA
+				  AND CURSO = @CURSO
+				  AND MATERIA = @MATERIA
+				  AND PERLETIVO = @PERLETIVO;
+
+
+		END;
+
+		SELECT *
+		FROM MATRICULA
+		WHERE MATRICULA = @MATRICULA;
+	END;
+
 
 Exemplo de execução da PROCEDURE para inserir (atualizar) as notas
 
@@ -119,12 +214,16 @@ Exemplo de execução da PROCEDURE para inserir (atualizar) as notas
   .. code-block:: sql
     :linenos:
 	
-	EXEC sp_CadastraNotas @MATRICULA = 1,  -- int
-						  @CURSO = 'ENG',     -- char(3)
-						  @MATERIA = 'BDA',   -- char(3)
+	--ALTER TABLE MATRICULA ADD MEDIAFINAL FLOAT
+
+
+	EXEC sp_CadastraNotas @MATRICULA = 4,      -- int
+						  @CURSO = 'ENG',      -- char(3)
+						  @MATERIA = 'BDA',    -- char(3)
 						  @PERLETIVO = '2018', -- char(4)
-						  @NOTA = 7.0,     -- float
-						  @FALTA = 4       -- int
+						  @NOTA = 7.0,         -- float
+						  @FALTA = 2,
+						  @PARAMETRO = 4;      -- int
 
 
   
