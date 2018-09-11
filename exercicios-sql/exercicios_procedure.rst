@@ -121,15 +121,15 @@ Exemplo de PROCEDURE para inserir (atualizar) as notas
   .. code-block:: sql
     :linenos:
 	
-	ALTER PROCEDURE sp_CadastraNotas
+	CREATE PROCEDURE sp_CadastraNotas
 	(
-    @MATRICULA INT,
-    @CURSO CHAR(3),
-    @MATERIA CHAR(3),
-    @PERLETIVO CHAR(4),
-    @NOTA FLOAT,
-    @FALTA INT,
-    @PARAMETRO INT
+		@MATRICULA INT,
+		@CURSO CHAR(3),
+		@MATERIA CHAR(3),
+		@PERLETIVO CHAR(4),
+		@NOTA FLOAT,
+		@FALTA INT,
+		@PARAMETRO INT
 	)
 	AS
 	BEGIN
@@ -193,8 +193,8 @@ Exemplo de PROCEDURE para inserir (atualizar) as notas
 				TOTALFALTAS = @FALTA + F1 + F2 + F3,
 				MEDIA = (@NOTA + N1 + N2 + N3) / 4,
 				MEDIAFINAL = (@NOTA + N1 + N2 + N3) / 4,
-				PERCFREQ = 144 - (@FALTA + F1 + F2 + F3) 
-			WHERE MATRICULA = @MATRICULA
+				PERCFREQ = 100 -( ((@FALTA + F1 + F2 + F3)*144 )/100)
+					   WHERE MATRICULA = @MATRICULA
 				  AND CURSO = @CURSO
 				  AND MATERIA = @MATERIA
 				  AND PERLETIVO = @PERLETIVO;
@@ -206,6 +206,7 @@ Exemplo de PROCEDURE para inserir (atualizar) as notas
 		FROM MATRICULA
 		WHERE MATRICULA = @MATRICULA;
 	END;
+
 
 
 Exemplo de execução da PROCEDURE para inserir (atualizar) as notas
