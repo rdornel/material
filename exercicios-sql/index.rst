@@ -10,5 +10,6 @@ Exercícios
   exercicios_ParteDois.rst
   exercicios_ParteTres.rst
   exercicios_procedure.rst
+  exercicios_trigger.rst
   
 
