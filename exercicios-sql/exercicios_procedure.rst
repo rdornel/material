@@ -112,7 +112,7 @@ Exemplo de PROCEDURE para inserir (atualizar) as notas
   .. code-block:: sql
     :linenos:
 	
-	CREATE PROCEDURE sp_CadastraNotas
+	CREATE PROCEDURE [dbo].[sp_CadastraNotas]
 	(
 		@MATRICULA INT,
 		@CURSO CHAR(3),
@@ -177,26 +177,73 @@ Exemplo de PROCEDURE para inserir (atualizar) as notas
 					@FREQUENCIA FLOAT,
 					@MEDIAFINAL FLOAT;
 
+
+
 			UPDATE MATRICULA
 			SET N4 = @NOTA,
 				F4 = @FALTA,
 				TOTALPONTOS = @NOTA + N1 + N2 + N3,
 				TOTALFALTAS = @FALTA + F1 + F2 + F3,
 				MEDIA = (@NOTA + N1 + N2 + N3) / 4,
-				MEDIAFINAL = (@NOTA + N1 + N2 + N3) / 4,
-				PERCFREQ = 100 -( ((@FALTA + F1 + F2 + F3)*144 )/100)
-					   WHERE MATRICULA = @MATRICULA
+				@MEDIAFINAL = (@NOTA + N1 + N2 + N3) / 4,
+				MEDIAFINAL = @MEDIAFINAL,
+				@FREQUENCIA = 100 - (((@FALTA + F1 + F2 + F3) * 144) / 100),
+				PERCFREQ = @FREQUENCIA,
+				RESULTADO = CASE
+								WHEN @FREQUENCIA >= 75
+									 AND @MEDIAFINAL >= 7 THEN
+									'APROVADO'
+								WHEN @FREQUENCIA >= 75
+									 AND @MEDIAFINAL >= 3 THEN
+									'EXAME'
+								ELSE
+									'REPROVADO'
+							END
+			WHERE MATRICULA = @MATRICULA
 				  AND CURSO = @CURSO
 				  AND MATERIA = @MATERIA
 				  AND PERLETIVO = @PERLETIVO;
 
 
+
 		END;
 
-		SELECT *
-		FROM MATRICULA
-		WHERE MATRICULA = @MATRICULA;
+		ELSE IF @PARAMETRO = 5
+		BEGIN
+
+			DECLARE @MEDIA FLOAT =
+					(
+						SELECT MEDIA
+						FROM MATRICULA
+						WHERE MATRICULA = @MATRICULA
+							  AND CURSO = @CURSO
+							  AND MATERIA = @MATERIA
+							  AND PERLETIVO = @PERLETIVO
+							  AND RESULTADO = 'EXAME'
+					);
+
+			UPDATE MATRICULA
+			SET NOTAEXAME = @NOTA,
+				RESULTADO = CASE
+								WHEN (@NOTA + @MEDIA) >= 10 THEN
+									'APROVADO'
+								ELSE
+									'REPROVADO'
+							END
+			WHERE MATRICULA = @MATRICULA
+				  AND CURSO = @CURSO
+				  AND MATERIA = @MATERIA
+				  AND PERLETIVO = @PERLETIVO
+				  AND RESULTADO = 'EXAME';
+
+
+		END;
+
 	END;
+	GO
+
+
+
 
 
 
@@ -207,6 +254,8 @@ Exemplo de execução da PROCEDURE para inserir (atualizar) as notas
     :linenos:
 	
 	--ALTER TABLE MATRICULA ADD MEDIAFINAL FLOAT
+	
+	--ALTER TABLE MATRICULA ADD NOTAEXAME FLOAT
 
 
 	EXEC sp_CadastraNotas @MATRICULA = 4,      -- int
