@@ -1,7 +1,7 @@
 BACK UP
 =======
 
-- Comando vinculado a uma tabela que executa um ação assim que algum comando de UPDATE, INSERT ou DELETE é executado na tabela onde a trigger está vinculada.
+- Comando .
 
 Comano para BACK UP
 -------------------
