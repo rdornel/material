@@ -20,3 +20,4 @@ http://www.w3schools.com/sql/
   transacoes.rst
   triggers.rst
   indices.rst
+  backup.rst
