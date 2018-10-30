@@ -114,4 +114,4 @@ EXERCÍCIOS Trigger
 		)
 		VALUES
 		(@NOMEALUNO,@CURSOALUNO)
-		END
+		END;
